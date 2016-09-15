@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cp ~/.i3/config ~/Documents/rice/.i3/
+cp ~/.scripts/* ~/Documents/rice/.scripts/
+
+cd ~/Documents/rice
+git add .
+git commit
+git push

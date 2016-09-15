@@ -1,0 +1,2 @@
+#!/bin/sh
+feh  --bg-fill '/home/michael/Pictures/wallpapers/fireworks.jpg' 

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cp ~/.i3/config ~/.i3/config.bak
+
+echo "backed up"
+
+cp ~/Documents/rice/.i3/config ~/.i3/
+
+echo "copied in new"

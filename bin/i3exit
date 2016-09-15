@@ -1,0 +1,34 @@
+#!/bin/sh
+lock() {
+    sh /home/michael/.scripts/lock.sh
+}
+
+prelock() {
+	sh /home/michael/.scripts/prelock.sh
+}
+
+case "$1" in
+    lock)
+		prelock && lock
+        ;;
+    logout)
+        leaveXFCE
+        ;;
+    suspend)
+		prelock && systemctl suspend && lock
+		;;
+    hibernate)
+		prelock && systemctl hibernate && lock
+        ;;
+    reboot)
+        systemctl reboot
+        ;;
+    shutdown)
+        systemctl poweroff
+        ;;
+    *)
+        echo "Usage: $0 {lock|logout|suspend|hibernate|reboot|shutdown}"
+        exit 2
+esac
+
+exit 0
