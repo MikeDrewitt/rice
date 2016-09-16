@@ -322,6 +322,7 @@ set $darkSlateGrey #483030
 set $mustardYellow #fcb746
 set $trueOrange #ff7220
 set $brightBlue #04c9f6
+set $hotPink #FF1971
 
 # mustard yellow
 set $barColor #5e4f4f60
@@ -344,10 +345,12 @@ bar {
 	i3bar_command i3bar -t
 	#tray_output none
 
-    mode dock
-    hidden_state hide
-    modifier $mod
-   	font pango: DejaVu Sans Mono, Icons $fontSize
+	separator_symbol ""
+
+   mode dock
+   hidden_state hide
+   modifier $mod
+   font pango: DejaVu Sans Mono, Icons $fontSize
  	
 	#position top
 
@@ -360,9 +363,12 @@ bar {
         focused_workspace  $barColor  $barColor  $orange 
 		inactive_workspace $barColor  $barColor  $white7
 		active_workspace   $barColor  $barColor  $white1
-		urgent_workspace   $orange $orange $brightBlue
+		urgent_workspace   $hotPink	  $hotPink   $brightBlue
     }
 }
+#bar {
+#	i3bar_command ~/.i3/lemonbar/i3_lemonbar.sh	
+#}
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
