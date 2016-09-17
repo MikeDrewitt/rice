@@ -12,6 +12,7 @@ exec --no-startup-id xmodmap ~/.xmodmaprc
 exec --no-startup-id compton -c -f --vsync opengl --config ~/.i3/compton.conf -b
 set $audioOutput 1
 set $fontSize 14
+set $barFontSize 12
 
 # Desktop Stuff
 # exec --no-startup-id xrandr --output HDMI-0 --auto --left-of DVI-I-1
@@ -21,13 +22,14 @@ set $fontSize 14
 # exec --no-startup-id systemctl enable ckb-daemon && systemctl start ckb-daemon
 # set $audioOutput 2
 # set $fontSize 9
+# set $barFontSize 9
 
 set $mod Mod4
 set $alt Mod1
 set $fn  XF86WakeUp
 set $gaps_inner 20
 set $gaps_outer 20
-set $border_px 6
+set $border_px 3
 
 set $term        gnome-terminal
 set $browser     google-chrome-unstable
@@ -323,19 +325,20 @@ set $mustardYellow #fcb746
 set $trueOrange #ff7220
 set $brightBlue #04c9f6
 set $hotPink #FF1971
+set $transparent #00000000
 
 # mustard yellow
-set $barColor #5e4f4f60
-set $activeWindow #ff722065
+set $barColor #282A2FB0
+set $activeWindow #ff7220
 
 # class                 bg          border      text        indicator
 client.focused          $background $activeWindow $foreground $activeWindow
-client.focused_inactive $background $white15    $foreground $white7
+client.focused_inactive $transparent $transparent  $foreground $white7
 client.unfocused        $background $black0     $foreground $white15
 client.urgent           $background $red1       $foreground	$red9
 client.placeholder      $background $background $foreground	$background
 
-
+# Py3Status
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -345,14 +348,14 @@ bar {
 	i3bar_command i3bar -t
 	#tray_output none
 
-	separator_symbol ""
+	separator_symbol "|"
 
-   mode dock
-   hidden_state hide
-   modifier $mod
-   font pango: DejaVu Sans Mono, Icons $fontSize
+	mode dock
+	hidden_state hide
+	modifier $mod
+	font pango: DejaVu Sans Mono, Icons $barFontSize
  	
-	#position top
+	position top
 
 	colors {
         separator $white1
@@ -366,9 +369,6 @@ bar {
 		urgent_workspace   $hotPink	  $hotPink   $brightBlue
     }
 }
-#bar {
-#	i3bar_command ~/.i3/lemonbar/i3_lemonbar.sh	
-#}
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
