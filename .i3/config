@@ -262,6 +262,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# hey I'm a comment!
+
 # special
 set $foreground      #d3dae3
 set $foreground_bold #d3dae3
@@ -366,7 +368,7 @@ bar {
         focused_workspace  $barColor  $barColor  $orange 
 		inactive_workspace $barColor  $barColor  $white7
 		active_workspace   $barColor  $barColor  $white1
-		urgent_workspace   $hotPink	  $hotPink   $brightBlue
+		urgent_workspace   $darkGrey  $darkGrey  $brightBlue
     }
 }
 
