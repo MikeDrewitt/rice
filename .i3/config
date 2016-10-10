@@ -229,8 +229,8 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 # keybaord backlight controls
-bindsym XF86KbdBrightnessUp exec "sh ~/.scripts/keyBoardLED_Up.sh"
-bindsym XF86KbdBrightnessDown exec  "sh ~/.scripts/keyBoardLED_Down.sh"
+bindsym XF86KbdBrightnessUp exec kbdlight up 5
+bindsym XF86KbdBrightnessDown exec kbdlight down 5
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
