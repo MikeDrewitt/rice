@@ -45,6 +45,7 @@ declare -a laptop=(
 	'perl-smart-comments'
 	'xf86-input-synapitcs-xswipe-git'
 	'bcwc-pcie-dkms'
+	'kbdlight'
 )
 
 for install in "${software[@]}"

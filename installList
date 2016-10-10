@@ -76,3 +76,5 @@
 
 	bcwc-pcie-dkms
 		# apple webcam
+	kbdlight
+		# keyboad backlight
