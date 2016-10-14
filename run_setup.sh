@@ -5,7 +5,7 @@ declare -a software=(
 	'atom-editor'
 	'gpmdp-git'
 	'gpmdp-remote'
-	'scudcloud'
+	'slack-desktop'
 	'vlc-git'
 	'teamspeak3'
 	'rdesktop'
