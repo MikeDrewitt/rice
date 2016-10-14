@@ -1,3 +1,0 @@
-#!/bin/bash
-
-pacman -U /var/cache/pacman/pkg/networkmanager-1.2.5dev+5+g99e34d7-1-x86_64.pkg.tar.xz 
