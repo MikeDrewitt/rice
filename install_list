@@ -58,6 +58,11 @@
 	perl-x11-guitest
 	perl-smart-comments
 	xf86-input-synaptics-xswipe-git
+
+	# zsh stuff
+	z-git
+	oh-my-zsh-git
+	zsh-syntax-highlighting
 	
 
 # Desktop Specific

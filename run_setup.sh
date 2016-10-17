@@ -30,6 +30,9 @@ declare -a rice=(
 	'vundle-git'
 	'vim-nerdtree'
 	'playerctl'
+	'zsh-syntax-highlighting'
+	'z-git'
+	'oh-my-zsh-git'
 )
 
 declare -a desktop=(
