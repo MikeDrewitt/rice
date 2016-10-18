@@ -1,6 +1,7 @@
 #Startup
 exec --no-startup-id nm-applet
-exec ~/.scripts/setWallpaper ~/.scripts/currentWallpaper.jpg
+exec --no-startup-id ~/.scripts/setWallpaper ~/.scripts/currentWallpaper.jpg
+exec --no-startup-id ~/.scripts/flux.sh
 
 # Workspaces Statup
 exec --no-startup-id "i3-msg 'workspace  home'"
@@ -337,7 +338,7 @@ client.placeholder      $background $background $foreground	$background
 # finds out, if available)
 bar {
 
-	status_command py3status
+	status_command py3status 
 
 	i3bar_command i3bar -t
 	#tray_output none
