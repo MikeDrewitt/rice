@@ -63,6 +63,9 @@
 	z-git
 	oh-my-zsh-git
 	zsh-syntax-highlighting
+
+	# Used as a f.lux replacement 
+	redshift
 	
 
 # Desktop Specific
