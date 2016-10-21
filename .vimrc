@@ -105,6 +105,7 @@ set shiftwidth=4					" spaces for autoindenting
 set smarttab						" <BS> removes shiftwidth worth of spaces
 set softtabstop=0 noexpandtab		" spaces for editing, e.g. <Tab> or <BS>
 set tabstop=4						" spaces for <Tab>
+"set expandtab						" Tabs will be converted to spaces
 
 " Searches
 set hlsearch						" highlight search results
@@ -324,7 +325,7 @@ autocmd FileType c
 	\ setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
 	"\ list lcs=tab:+·
 autocmd FileType cpp,java,javascript,json,markdown,php,python
-	\ setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
+	\ setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 	"\ list lcs=tab:+.
 autocmd FileType markdown setlocal textwidth=80
 autocmd FileType prg
