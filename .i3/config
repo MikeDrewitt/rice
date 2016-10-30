@@ -7,23 +7,23 @@ exec --no-startup-id ~/.scripts/flux.sh
 exec --no-startup-id "i3-msg 'workspace  home'"
 
 # Laptop Stuff
-exec xinput --set-prop 13 "Synaptics Two-Finger Scrolling" 1 1
-exec --no-startup-id perl ~/.scripts/xSwipe/xSwipe.pl -m 30
-exec --no-startup-id xmodmap ~/.xmodmaprc
-exec --no-startup-id compton -c -f --vsync opengl --config ~/.i3/compton.conf -b
-set $audioOutput 1
-set $fontSize 14
-set $barFontSize 12
+# exec xinput --set-prop 13 "Synaptics Two-Finger Scrolling" 1 1
+# exec --no-startup-id perl ~/.scripts/xSwipe/xSwipe.pl -m 30
+# exec --no-startup-id xmodmap ~/.xmodmaprc
+# exec --no-startup-id compton -c -f --vsync opengl --config ~/.i3/compton.conf -b
+# set $audioOutput 1
+# set $fontSize 14
+# set $barFontSize 12
 
 # Desktop Stuff
-# exec --no-startup-id xrandr --output HDMI-0 --auto --left-of DVI-I-1
-# bindsym Control+$alt+Left move workspace to output left
-# bindsym Control+$alt+Right move workspace to output right
-# exec --no-startup-id compton -c -f --config ~/.i3/compton.conf -b 
-# exec --no-startup-id systemctl enable ckb-daemon && systemctl start ckb-daemon
-# set $audioOutput 2
-# set $fontSize 9
-# set $barFontSize 9
+exec --no-startup-id xrandr --output HDMI-0 --auto --left-of DVI-I-1
+bindsym Control+$alt+Left move workspace to output left
+bindsym Control+$alt+Right move workspace to output right
+exec --no-startup-id compton -c -f --config ~/.i3/compton-desktop.conf -b 
+exec --no-startup-id systemctl enable ckb-daemon && systemctl start ckb-daemon
+set $audioOutput 5
+set $fontSize 8
+set $barFontSize 8
 
 set $mod Mod4
 set $alt Mod1
@@ -341,7 +341,7 @@ bar {
 	status_command py3status 
 
 	i3bar_command i3bar -t
-	#tray_output none
+	tray_output none
 
 	separator_symbol "|"
 
