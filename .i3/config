@@ -3,27 +3,29 @@ exec --no-startup-id nm-applet
 exec --no-startup-id ~/.scripts/setWallpaper ~/.scripts/currentWallpaper.jpg
 exec --no-startup-id ~/.scripts/flux.sh
 
+exec_always --no-startup-id ~/.config/lemonbuddy/launch.sh
+
 # Workspaces Statup
 exec --no-startup-id "i3-msg 'workspace  home'"
 
 # Laptop Stuff
-# exec xinput --set-prop 13 "Synaptics Two-Finger Scrolling" 1 1
-# exec --no-startup-id perl ~/.scripts/xSwipe/xSwipe.pl -m 30
-# exec --no-startup-id xmodmap ~/.xmodmaprc
-# exec --no-startup-id compton -c -f --vsync opengl --config ~/.i3/compton.conf -b
-# set $audioOutput 1
-# set $fontSize 14
-# set $barFontSize 12
+exec --no-startup-id xinput --set-prop 13 "Synaptics Two-Finger Scrolling" 1 1
+exec --no-startup-id perl ~/.scripts/xSwipe/xSwipe.pl -m 30
+exec --no-startup-id xmodmap ~/.xmodmaprc
+exec --no-startup-id compton -c -f --vsync opengl --config ~/.i3/compton.conf -b
+set $audioOutput 1
+set $fontSize 14
+set $barFontSize 12
 
 # Desktop Stuff
-exec --no-startup-id xrandr --output HDMI-0 --auto --left-of DVI-I-1
-bindsym Control+$alt+Left move workspace to output left
-bindsym Control+$alt+Right move workspace to output right
-exec --no-startup-id compton -c -f --config ~/.i3/compton-desktop.conf -b 
-exec --no-startup-id systemctl enable ckb-daemon && systemctl start ckb-daemon
-set $audioOutput 5
-set $fontSize 8
-set $barFontSize 8
+# exec --no-startup-id xrandr --output HDMI-0 --auto --left-of DVI-I-1
+# bindsym Control+$alt+Left move workspace to output left
+# bindsym Control+$alt+Right move workspace to output right
+# exec --no-startup-id compton -c -f --config ~/.i3/compton.conf -b 
+# exec --no-startup-id systemctl enable ckb-daemon && systemctl start ckb-daemon
+# set $audioOutput 2
+# set $fontSize 9
+# set $barFontSize 9
 
 set $mod Mod4
 set $alt Mod1
@@ -86,24 +88,24 @@ for_window [class="^.*"] border pixel $border_px
 new_window pixel $border_px
 new_float pixel $border_px
 
-workspace " atom" gaps inner 0
-workspace " atom" gaps outer 0
+workspace " atom" gaps inner 5
+workspace " atom" gaps outer 5
 workspace " chrome" gaps inner 5
 workspace " chrome" gaps outer 5
 workspace " spotify" gaps inner 0
 workspace " spotify" gaps outer 0
-workspace " play" gaps inner 0
-workspace " play" gaps outer 0
-workspace " mail" gaps inner 0
-workspace " mail" gaps outer 0
+workspace " play" gaps inner 5
+workspace " play" gaps outer 5
+workspace " mail" gaps inner 5
+workspace " mail" gaps outer 5
 workspace " chat" gaps inner 10
 workspace " chat" gaps outer 10
 workspace " steam" gaps inner 15
 workspace " steam" gaps outer 15
-workspace " plex" gaps inner 0
-workspace " plex" gaps outer 0
-workspace " gaming" gaps inner 0
-workspace " gaming" gaps outer 0
+workspace " plex" gaps inner 5
+workspace " plex" gaps outer 5
+workspace " gaming" gaps inner 5
+workspace " gaming" gaps outer 5
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below
@@ -336,50 +338,6 @@ client.placeholder      $background $background $foreground	$background
 # Py3Status
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-
-	status_command py3status 
-
-	i3bar_command i3bar -t
-	tray_output none
-
-	separator_symbol "|"
-
-	mode dock
-	hidden_state hide
-	modifier $mod
-	font pango: DejaVu Sans Mono, Icons $barFontSize
- 	
-	position top
-
-	colors {
-        separator $white1
-        background $barColor
-        statusline $white1
-
-		# class            border      backgr.     text
-        focused_workspace  $barColor  $barColor  $orange 
-		inactive_workspace $barColor  $barColor  $white7
-		active_workspace   $barColor  $barColor  $white1
-		urgent_workspace   $darkGrey  $darkGrey  $brightBlue
-    }
-}
-
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
-mode "$mode_system" {
-    bindsym l exec --no-startup-id ~/.scripts/i3exit lock, mode "default"
-    bindsym e exec --no-startup-id ~/.scripts/i3exit logout, mode "default"
-    bindsym s exec --no-startup-id ~/.scripts/i3exit suspend, mode "default"
-    bindsym h exec --no-startup-id ~/.scripts/i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id ~/.scripts/i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+BackSpace mode "$mode_system"
-
 # Set background
 exec $wallpaper $theme
 
