@@ -1,15 +1,18 @@
-#!/usr/bin/python
-import os
+#!/usr/bin/env python3
+# Uses Google Play Desktop Player [Unofficial]'s API for now playing.
 
-playing_dir = '~/.config/Google\ Play\ Music\ Desktop\ Player/json_store/'
-playing_file = 'playback.json'
+import json
+from os.path import expanduser
 
-os.system('cd ' + playing_dir)
+GPMDP_API = expanduser('~') + '/.config/Google Play Music Desktop Player/json_store/playback.json'
 
-with open(playing_file, 'r') as db:
-    for song in db:
-        print(song)
+def main():
+    with open(GPMDP_API, 'r') as f:
+        data = json.load(f)
+        if data['playing']:
+            print('{title} by {artist}'.format(title=data['song']['title'], artist=data['song']['artist']));
+        else:
+            print('')
 
-
-
-
+if __name__ == '__main__':
+    main()
