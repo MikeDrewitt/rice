@@ -9,7 +9,7 @@ width = 100%
 height = 35
 clickareas = 35
 
-background = #803f3f3f
+background = #A03f3f3f
 foreground = #D3DAE3
 linecolor = #ffffff
 
@@ -27,7 +27,7 @@ lineheight = 10
 font-0 = FontAwesome:size=8;-4
 font-1 = SanFranciscoDisplay:size=8:weight=bold;0;
 
-modules-left =  powermenu play_music
+modules-left =  powermenu play_music 
 modules-center = i3
 modules-right = volume wireless-network battery clock
 
@@ -174,7 +174,7 @@ menu-2-1-exec = menu-open-0
 type = internal/date
 interval = 2
 date = %{F-}%{B-}     %m-%d-%Y   |      %H:%M   %{F-}%{B-}
-format-background = #60e7ecdb
-format-foreground = #CCC
+format-background = #AAe7ecdb
+format-foreground = #333
 
 # vim:filetype=dosini
