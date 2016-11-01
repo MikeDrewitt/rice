@@ -54,7 +54,7 @@ assign [title="(?i)LibreOffice"] " office"
 
 # Custom key-bindings
 bindsym $mod+c exec $browser; workspace  chrome
-bindsym $mod+Shift+p exec gpmdp ;workspace  play
+bindsym $mod+Shift+p exec gpmdp ;workspace  play 
 bindsym $mod+m workspace " files"; exec gnome-terminal -e ranger
 bindsym $mod+Shift+m workspace " files"; exec thunar
 bindsym $mod+t exec $term
