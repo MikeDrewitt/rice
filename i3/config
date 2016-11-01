@@ -284,7 +284,7 @@ set $transparent #00000000
 
 # mustard yellow
 set $barColor #282A2FB0
-set $activeWindow #ff7220
+set $activeWindow #e7aa2d
 
 # class                 bg          border      text        indicator
 client.focused          $background $activeWindow $foreground $activeWindow
