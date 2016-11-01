@@ -3,22 +3,18 @@ lock() {
     sh ~/.scripts/lock.sh
 }
 
-prelock() {
-	sh ~/.scripts/prelock.sh
-}
-
 case "$1" in
     lock)
-		prelock && lock
+		lock
         ;;
     logout)
 		i3-msg exit 
         ;;
     suspend)
-		prelock && systemctl suspend && lock
+		systemctl suspend && lock
 		;;
     hibernate)
-		prelock && systemctl hibernate && lock
+		systemctl hibernate && lock
         ;;
     reboot)
         systemctl reboot
