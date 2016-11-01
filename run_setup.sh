@@ -33,7 +33,8 @@ declare -a rice=(
 	'zsh-syntax-highlighting'
 	'z-git'
 	'oh-my-zsh-git'
-	'redshift`
+	'redshift'
+	'lemonbuddy-git'
 )
 
 declare -a desktop=(

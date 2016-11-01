@@ -67,6 +67,8 @@
 	# Used as a f.lux replacement 
 	redshift
 	
+	# A alternative top bar
+	lemonbuddy-git
 
 # Desktop Specific
 
