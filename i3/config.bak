@@ -41,6 +41,8 @@ set $chat        chat
 set $filemanager ranger
 set $theme       arch-dotted
 
+set $wallpaper   /bin/wallpaper-change
+
 # Assign workspaces
 assign [title="(?i)atom"] " atom"
 assign [title="(?i)steam"] " steam"
@@ -57,6 +59,7 @@ bindsym $mod+c exec $browser; workspace  chrome
 bindsym $mod+Shift+p exec gpmdp ;workspace  play
 bindsym $mod+m workspace " files"; exec gnome-terminal -e ranger
 bindsym $mod+Shift+m workspace " files"; exec thunar
+bindsym $mod+o exec $wallpaper $theme
 bindsym $mod+t exec $term
 bindsym $mod+Shift+a exec atom; workspace " atom"
 bindsym $mod+Control+space exec ~/.scripts/prelock.sh && ~/.scripts/lock.sh
@@ -85,24 +88,24 @@ for_window [class="^.*"] border pixel $border_px
 new_window pixel $border_px
 new_float pixel $border_px
 
-workspace " atom" gaps inner 5
-workspace " atom" gaps outer 5
+workspace " atom" gaps inner 0
+workspace " atom" gaps outer 0
 workspace " chrome" gaps inner 5
 workspace " chrome" gaps outer 5
 workspace " spotify" gaps inner 0
 workspace " spotify" gaps outer 0
-workspace " play" gaps inner 5
-workspace " play" gaps outer 5
-workspace " mail" gaps inner 5
-workspace " mail" gaps outer 5
+workspace " play" gaps inner 0
+workspace " play" gaps outer 0
+workspace " mail" gaps inner 0
+workspace " mail" gaps outer 0
 workspace " chat" gaps inner 10
 workspace " chat" gaps outer 10
 workspace " steam" gaps inner 15
 workspace " steam" gaps outer 15
-workspace " plex" gaps inner 5
-workspace " plex" gaps outer 5
-workspace " gaming" gaps inner 5
-workspace " gaming" gaps outer 5
+workspace " plex" gaps inner 0
+workspace " plex" gaps outer 0
+workspace " gaming" gaps inner 0
+workspace " gaming" gaps outer 0
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below
@@ -258,6 +261,8 @@ bindsym $mod+r mode "resize"
 
 # special
 set $foreground      #d3dae3
+set $foreground_bold #d3dae3
+set $cursor          #d3dae3
 set $background      #383c4a
 
 # black
@@ -272,6 +277,24 @@ set $red9  #e3818d
 set $green2  #52e261
 set $green10 #81e38d
 
+# yellow
+set $yellow3  #e2d952
+set $yellow11 #e3d881
+
+# blue
+set $blue4  #5294e2
+set $blue12 #81aee2
+set $blue1 #0066ff
+set $blue2 #5d97ed
+
+# magenta
+set $magenta5  #b952e2
+set $magenta13 #c281e3
+
+# cyan
+set $cyan6  #52d3e2
+set $cyan14 #81d8e3
+
 # orange 
 set $orange #FF9900
 
@@ -279,7 +302,26 @@ set $orange #FF9900
 set $white1 #FFFFFF
 set $white7  #CCCCCC
 set $white15 #8a929a
+#set $white15 #c7ccd1
 
+# orange
+set $orange #ff7f00
+set $lightGrey #717070
+set $darkGrey #495355
+set $greyBrown #8C7569
+set $greyBlue #8D9CB3
+set $greyBrown #98846f
+set $lightBlue #5a738c
+set $darkMustardYellow #aa964c
+set $sandybrownYellow #fcb746
+set $sandlebrownMaroon #7d2e27
+set $saddlebrownRed #932f01
+set $chocolateOrange #d76b02
+set $darkSlateGrey #483030
+set $mustardYellow #fcb746
+set $trueOrange #ff7220
+set $brightBlue #04c9f6
+set $hotPink #FF1971
 set $transparent #00000000
 
 # mustard yellow
@@ -292,6 +334,38 @@ client.focused_inactive $transparent $transparent  $foreground $white7
 client.unfocused        $background $black0     $foreground $white15
 client.urgent           $background $red1       $foreground	$red9
 client.placeholder      $background $background $foreground	$background
+
+# Py3Status
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+
+	status_command py3status 
+	i3bar_command i3bar -t
+
+	tray_output none
+
+	separator_symbol "|"
+
+	mode dock
+	hidden_state hide
+	modifier $mod
+	font pango: DejaVu Sans Mono, Icons $barFontSize
+ 	
+	position top
+
+	colors {
+        separator $white1
+        background $barColor
+        statusline $white1
+
+		# class            border      backgr.     text
+        focused_workspace  $barColor  $barColor  $orange 
+		inactive_workspace $barColor  $barColor  $white7
+		active_workspace   $barColor  $barColor  $white1
+		urgent_workspace   $darkGrey  $darkGrey  $brightBlue
+    }
+}
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
@@ -307,5 +381,8 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 bindsym $mod+BackSpace mode "$mode_system"
+
+# Set background
+exec $wallpaper $theme
 
 # vim:filetype=i3
