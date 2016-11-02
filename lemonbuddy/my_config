@@ -150,10 +150,9 @@ label-visible-underline = #555555
 label-visible-padding = 4
 
 label-urgent = %name%
-label-urgent-foreground = #ffffff
-label-urgent-background = #e7aa2d
-label-urgent-underline = #3f3f3f
-label-urgent-padding = 6
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-padding = 4
 
 [module/wireless-network]
 type = internal/network
