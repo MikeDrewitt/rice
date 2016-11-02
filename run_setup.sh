@@ -35,6 +35,7 @@ declare -a rice=(
 	'oh-my-zsh-git'
 	'redshift'
 	'lemonbuddy-git'
+	'dunst-git'
 )
 
 declare -a desktop=(

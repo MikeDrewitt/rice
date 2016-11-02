@@ -53,6 +53,8 @@
 		# filetree for vim
 	playerctl
 		# used for media keys
+	dunst-git
+		# a simple notifyer for gtk notifications
 	
 	# This stuff is used for touchpad gestures making xswipe work
 	perl-x11-guitest
