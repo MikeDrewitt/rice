@@ -3,9 +3,9 @@
 # Terminate already running bar instances
   killall -q lemonbuddy
 
-# Launch bar1 and bar2
-lemonbuddy top &
-#lemonbuddy bottom &
-# lemonbuddy_wrapper bar2 &
+# lemonbuddy laptop &
+lemonbuddy desktop_main &
+lemonbuddy desktop_second &
+
 
 echo "Bars launched..."
