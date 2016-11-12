@@ -1,7 +1,7 @@
 #Startup
 exec --no-startup-id nm-applet
 exec --no-startup-id ~/.scripts/setWallpaper ~/.scripts/currentWallpaper.jpg
-exec --no-startup-id ~/.scripts/flux.sh
+#exec --no-startup-id ~/.scripts/flux.sh
 
 # Workspaces Statup
 exec --no-startup-id "i3-msg 'workspace  home'"
@@ -18,11 +18,13 @@ exec --no-startup-id "i3-msg 'workspace  home'"
 
 # Desktop Stuff
 exec_always --no-startup-id ~/.config/lemonbuddy/desktop-launch.sh
-exec --no-startup-id xrandr --output HDMI-0 --auto --left-of DVI-I-1
+exec_always --no-startup-id xrandr --output HDMI-0 --auto --left-of DVI-D-0
 bindsym Control+$alt+Left move workspace to output left
 bindsym Control+$alt+Right move workspace to output right
 exec --no-startup-id compton -c -f --config ~/.i3/compton.conf -b 
 exec --no-startup-id systemctl enable ckb-daemon && systemctl start ckb-daemon
+exec --no-startup-id ckb &
+bindsym $mod+Shift+w exec ~/.scripts/windows.sh
 set $audioOutput 2
 set $fontSize 9
 set $barFontSize 9
@@ -59,7 +61,7 @@ bindsym $mod+m workspace " files"; exec gnome-terminal -e ranger
 bindsym $mod+Shift+m workspace " files"; exec thunar
 bindsym $mod+t exec $term
 bindsym $mod+Shift+a exec atom; workspace " atom"
-bindsym $mod+Control+space exec ~/.scripts/prelock.sh && ~/.scripts/lock.sh
+bindsym $mod+Control+space exec ~/.scripts/lock.sh
 bindsym $mod+h workspace " chat"; exec slack; exec teamspeak3
 bindsym $mod+s workspace " steam"; exec sh ~/.scripts/steam.sh
 
