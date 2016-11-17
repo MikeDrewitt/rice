@@ -4,8 +4,9 @@
   killall -q lemonbuddy
 
 # lemonbuddy laptop &
-lemonbuddy desktop_main &
-lemonbuddy desktop_second &
+lemonbuddy desktop_center &
+lemonbuddy desktop_left &
+lemonbuddy desktop_right &
 
 
 echo "Bars launched..."

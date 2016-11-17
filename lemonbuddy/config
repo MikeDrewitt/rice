@@ -1,4 +1,4 @@
-[bar/desktop_main]
+[bar/desktop_center]
 monitor = DVI-D-0
 width = 100%
 height = 25
@@ -28,7 +28,7 @@ modules-right = volume clock
 
 tray-background = #60e7ecdb
 
-[bar/desktop_second]
+[bar/desktop_left]
 monitor = HDMI-0
 width = 100%
 height = 25
@@ -58,6 +58,38 @@ modules-right = i3
 
 ;tray-position = right
 tray-background = #60e7ecdb
+
+[bar/desktop_right]
+monitor = DP-2
+width = 100%
+height = 25
+clickareas = 35
+
+background = #A03f3f3f
+foreground = #D3DAE3
+linecolor = #ffffff
+
+border-color = #00FFFFFF
+border-left = 10
+border-right = 10
+border-top = 10
+
+module-margin-left = 2
+module-margin-right = 2
+
+spacing = 3
+lineheight = 3
+
+font-0 = FontAwesome:size=8;
+font-1 = SanFranciscoDisplay:size=8:weight=bold;0;
+
+modules-left = i3 
+modules-center = 
+modules-right = volume clock
+
+;tray-position = right
+tray-background = #60e7ecdb
+
 
 
 [bar/laptop]

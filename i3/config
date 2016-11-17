@@ -19,6 +19,7 @@ exec --no-startup-id "i3-msg 'workspace  home'"
 # Desktop Stuff
 exec_always --no-startup-id ~/.config/lemonbuddy/desktop-launch.sh
 exec_always --no-startup-id xrandr --output HDMI-0 --auto --left-of DVI-D-0
+exec_always --no-startup-id xrandr --output DP-2 --auto --right-of DVI-D-0
 bindsym Control+$alt+Left move workspace to output left
 bindsym Control+$alt+Right move workspace to output right
 exec --no-startup-id compton -c -f --config ~/.i3/compton.conf -b 
