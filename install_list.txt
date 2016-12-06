@@ -1,6 +1,6 @@
 # programs
 google-chrome-dev # really?
-atom-editor-beta # My GUI text editor of choice
+atom-editor-bin # My GUI text editor of choice
 gpmdp-git # Remote for google play music
 gpmdp-remote # My music player of choice
 slack-desktop # Slack Chat

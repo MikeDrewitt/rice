@@ -19,6 +19,9 @@ aur_packages = aur_packages.split()
 # kinda gross because the aur installed packages list also has 
 # the versions but for our purposes it won't matter, and goes unsceen anyways
 
+if len(sys.argv) < 2:
+    print('This script does nothing without params.')
+
 with open(INSTALL_LIST, 'r') as install_list:
     for install in install_list:
         if install[0] == '#':

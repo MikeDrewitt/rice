@@ -93,7 +93,7 @@ tray-background = #60e7ecdb
 
 
 [bar/laptop]
-;monitor = eDP-1
+monitor = eDP1
 width = 100%
 height = 35
 clickareas = 35
@@ -118,8 +118,8 @@ dock = false
 font-0 = FontAwesome:size=8;-4
 font-1 = SanFranciscoDisplay:size=8:weight=bold;0;
 
-modules-left =  powermenu play_music 
-modules-center = i3
+modules-left = i3 play_music 
+modules-center = 
 modules-right = volume wireless-network battery clock
 
 tray-position = right
@@ -224,7 +224,7 @@ ramp-volume-3 = 
 
 [module/play_music]
 type = custom/script
-
+m-applet
 exec = ~/.scripts/play_music.py
 maxlen = 20
 ellipsis = true
