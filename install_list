@@ -34,7 +34,6 @@ polybar-git # A alternative top bar
 z-git # z cd
 oh-my-zsh-git # oh my z shell
 zsh-syntax-highlighting # syntax highlighting 
-dynamic-colors-git # easy terminal colors on the fly
 
 # laptop
 perl-x11-guitest
