@@ -1,0 +1,27 @@
+(function() {
+  var fs, handler, pathToCheck, result, t0, t1, text;
+
+  handler = require('../lib/spell-check-handler');
+
+  fs = require('fs');
+
+  pathToCheck = process.argv[2];
+
+  console.log("Spellchecking %s...", pathToCheck);
+
+  text = fs.readFileSync(pathToCheck, 'utf8');
+
+  t0 = Date.now();
+
+  result = handler({
+    id: 1,
+    text: text
+  });
+
+  t1 = Date.now();
+
+  console.log("Found %d misspellings in %d milliseconds", result.misspellings.length, t1 - t0);
+
+}).call(this);
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiL3RtcC95YW91cnQtdG1wLW1pY2hhZWwvYXVyLWF0b20tZWRpdG9yLWdpdC9zcmMvYXRvbS9vdXQvYXBwL25vZGVfbW9kdWxlcy9zcGVsbC1jaGVjay9zY3JpcHQvYmVuY2htYXJrLmNvZmZlZSJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFQTtBQUFBLE1BQUE7O0VBQUEsT0FBQSxHQUFVLE9BQUEsQ0FBUSw0QkFBUjs7RUFDVixFQUFBLEdBQUssT0FBQSxDQUFRLElBQVI7O0VBRUwsV0FBQSxHQUFjLE9BQU8sQ0FBQyxJQUFLLENBQUEsQ0FBQTs7RUFDM0IsT0FBTyxDQUFDLEdBQVIsQ0FBWSxxQkFBWixFQUFtQyxXQUFuQzs7RUFFQSxJQUFBLEdBQU8sRUFBRSxDQUFDLFlBQUgsQ0FBZ0IsV0FBaEIsRUFBNkIsTUFBN0I7O0VBRVAsRUFBQSxHQUFLLElBQUksQ0FBQyxHQUFMLENBQUE7O0VBQ0wsTUFBQSxHQUFTLE9BQUEsQ0FBUTtJQUFDLEVBQUEsRUFBSSxDQUFMO0lBQVEsTUFBQSxJQUFSO0dBQVI7O0VBQ1QsRUFBQSxHQUFLLElBQUksQ0FBQyxHQUFMLENBQUE7O0VBRUwsT0FBTyxDQUFDLEdBQVIsQ0FBWSwwQ0FBWixFQUF3RCxNQUFNLENBQUMsWUFBWSxDQUFDLE1BQTVFLEVBQW9GLEVBQUEsR0FBSyxFQUF6RjtBQVpBIiwic291cmNlc0NvbnRlbnQiOlsiIyEvdXNyL2Jpbi9lbnYgY29mZmVlXG5cbmhhbmRsZXIgPSByZXF1aXJlICcuLi9saWIvc3BlbGwtY2hlY2staGFuZGxlcidcbmZzID0gcmVxdWlyZSAnZnMnXG5cbnBhdGhUb0NoZWNrID0gcHJvY2Vzcy5hcmd2WzJdXG5jb25zb2xlLmxvZyhcIlNwZWxsY2hlY2tpbmcgJXMuLi5cIiwgcGF0aFRvQ2hlY2spXG5cbnRleHQgPSBmcy5yZWFkRmlsZVN5bmMocGF0aFRvQ2hlY2ssICd1dGY4JylcblxudDAgPSBEYXRlLm5vdygpXG5yZXN1bHQgPSBoYW5kbGVyKHtpZDogMSwgdGV4dH0pXG50MSA9IERhdGUubm93KClcblxuY29uc29sZS5sb2coXCJGb3VuZCAlZCBtaXNzcGVsbGluZ3MgaW4gJWQgbWlsbGlzZWNvbmRzXCIsIHJlc3VsdC5taXNzcGVsbGluZ3MubGVuZ3RoLCB0MSAtIHQwKVxuIl19

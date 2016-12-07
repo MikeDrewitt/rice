@@ -11,7 +11,7 @@ ex: python setup.py programs rice desktop
 import os 
 import sys
 
-INSTALL_LIST = 'install_list.txt'
+INSTALL_LIST = 'install_list'
 
 aur_packages = os.popen('pacman -Q').read()
 aur_packages = aur_packages.split()

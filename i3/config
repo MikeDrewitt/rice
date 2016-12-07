@@ -7,28 +7,28 @@ exec --no-startup-id ~/.scripts/setWallpaper ~/.scripts/currentWallpaper.jpg
 exec --no-startup-id "i3-msg 'workspace  home'"
 
 # Laptop Stuff
-#exec_always --no-startup-id ~/.config/lemonbuddy/laptop-launch.sh
-#exec --no-startup-id xinput --set-prop 13 "Synaptics Two-Finger Scrolling" 1 1
-#exec --no-startup-id perl ~/.scripts/xSwipe/xSwipe.pl -m 30
-#exec --no-startup-id xmodmap ~/.xmodmaprc
-#exec --no-startup-id compton -c -f --vsync opengl --config ~/.i3/compton.conf -b
-#set $audioOutput 1
-#set $fontSize 14
-#set $barFontSize 12
+exec_always --no-startup-id ~/.config/polybar/laptop-launch.sh
+exec --no-startup-id xinput --set-prop 13 "Synaptics Two-Finger Scrolling" 1 1
+exec --no-startup-id perl ~/.scripts/xSwipe/xSwipe.pl -m 30
+exec --no-startup-id xmodmap ~/.xmodmaprc
+exec --no-startup-id compton -c -f --vsync opengl --config ~/.i3/compton.conf -b
+set $audioOutput 1
+set $fontSize 14
+set $barFontSize 12
 
 # Desktop Stuff
-exec_always --no-startup-id ~/.config/lemonbuddy/desktop-launch.sh
-exec_always --no-startup-id xrandr --output HDMI-0 --auto --left-of DVI-D-0
-exec_always --no-startup-id xrandr --output DP-2 --auto --right-of DVI-D-0
-bindsym Control+$alt+Left move workspace to output left
-bindsym Control+$alt+Right move workspace to output right
-exec --no-startup-id compton -c -f --config ~/.i3/compton.conf -b 
-exec --no-startup-id systemctl enable ckb-daemon && systemctl start ckb-daemon
-exec --no-startup-id ckb &
-bindsym $mod+Shift+w exec ~/.scripts/windows.sh
-set $audioOutput 2
-set $fontSize 9
-set $barFontSize 9
+#exec_always --no-startup-id ~/.config/polybar/desktop-launch.sh
+#exec_always --no-startup-id xrandr --output HDMI-0 --auto --left-of DVI-D-0
+#exec_always --no-startup-id xrandr --output DP-2 --auto --right-of DVI-D-0
+#bindsym Control+$alt+Left move workspace to output left
+#bindsym Control+$alt+Right move workspace to output right
+#exec --no-startup-id compton -c -f --config ~/.i3/compton.conf -b 
+#exec --no-startup-id systemctl enable ckb-daemon && systemctl start ckb-daemon
+#exec --no-startup-id ckb &
+#bindsym $mod+Shift+w exec ~/.scripts/windows.sh
+#set $audioOutput 2
+#set $fontSize 9
+#set $barFontSize 9
 
 set $mod Mod4
 set $alt Mod1
@@ -287,7 +287,7 @@ set $transparent #00000000
 
 # mustard yellow
 set $barColor #282A2FB0
-set $activeWindow #e7aa2d
+set $activeWindow #FF8F28
 
 # class                 bg          border      text        indicator
 client.focused          $background $activeWindow $foreground $activeWindow

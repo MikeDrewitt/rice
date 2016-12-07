@@ -1,0 +1,1 @@
+{"digest":"4c4a94845e7f223b4aca5a2ac1fb52a02eb1ce43","css":"::-webkit-scrollbar-corner {\n  background-color: transparent;\n}\n::-webkit-scrollbar {\n  width: 8px;\n  height: 8px;\n}\n::-webkit-scrollbar-thumb {\n  border-radius: 2px;\n  background: rgba(150, 150, 150, 0.33);\n}\n","imports":[],"version":1}

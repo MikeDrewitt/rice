@@ -1,0 +1,12 @@
+'use babel';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+exports['default'] = {
+  getProcessPlatform: function getProcessPlatform() {
+    return process.platform;
+  }
+};
+module.exports = exports['default'];
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi90bXAveWFvdXJ0LXRtcC1taWNoYWVsL2F1ci1hdG9tLWVkaXRvci1naXQvc3JjL2F0b20vb3V0L2FwcC9ub2RlX21vZHVsZXMvbGluZS1lbmRpbmctc2VsZWN0b3IvbGliL2hlbHBlcnMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsV0FBVyxDQUFBOzs7OztxQkFFSTtBQUNiLG9CQUFrQixFQUFDLDhCQUFHO0FBQ3BCLFdBQU8sT0FBTyxDQUFDLFFBQVEsQ0FBQTtHQUN4QjtDQUNGIiwiZmlsZSI6Ii90bXAveWFvdXJ0LXRtcC1taWNoYWVsL2F1ci1hdG9tLWVkaXRvci1naXQvc3JjL2F0b20vb3V0L2FwcC9ub2RlX21vZHVsZXMvbGluZS1lbmRpbmctc2VsZWN0b3IvbGliL2hlbHBlcnMuanMiLCJzb3VyY2VzQ29udGVudCI6WyIndXNlIGJhYmVsJ1xuXG5leHBvcnQgZGVmYXVsdCB7XG4gIGdldFByb2Nlc3NQbGF0Zm9ybSAoKSB7XG4gICAgcmV0dXJuIHByb2Nlc3MucGxhdGZvcm1cbiAgfVxufVxuIl19

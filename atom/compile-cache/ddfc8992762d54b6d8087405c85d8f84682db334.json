@@ -1,0 +1,1 @@
+{".platform-darwin":{"cmd-.":"key-binding-resolver:toggle"},".platform-win32":{"ctrl-.":"key-binding-resolver:toggle"},".platform-linux":{"ctrl-.":"key-binding-resolver:toggle"}}
