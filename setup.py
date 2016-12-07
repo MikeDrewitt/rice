@@ -33,6 +33,8 @@ with open(INSTALL_LIST, 'r') as install_list:
                 if not program in aur_packages and flag in sys.argv:
                     os.system('yaourt -S --noconfirm ' + program)
                     #print(program)
+                elif program in aur_packages:
+                    print(program + ' is already installed')
             except IndexError:
                 pass
      

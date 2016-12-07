@@ -12,7 +12,6 @@ thunar # a gui file browser
 ranger # Vim like file browser
 htop # A better top
 redshift # Used as a f.lux replacement	
-nvidia-libgl32 # Needed for Steam
 
 # rice
 i3-gaps-git # The i3 I use
@@ -47,4 +46,4 @@ nvidia
 nvidia-libigl # Obligatory Drivers for nvidia
 obs #Used for screen recording 
 ckb # Community Keyboard Drivers
-
+nvidia-libgl32 # Needed for Steam
