@@ -1,9 +1,13 @@
 #!/bin/bash
 
-scrot /home/michael/.scripts/lock_screen.png
+image_path="/home/michael/.scripts/lock.png"
 
-ffmpeg -loglevel quiet -y -i ~/.scripts/lock_screen.png -vf "gblur=sigma=10" ~/.scripts/lock_screen.png
+scrot $image_path
 
-i3lock -nu -i "/home/michael/.scripts/lock_screen.png"
+convert $image_path -scale 25% $image_path
+ffmpeg -loglevel quiet -y -i $image_path -vf "gblur=sigma=10" $image_path
+convert $image_path -scale 400% $image_path
+
+i3lock -nu -i $image_path
 
 
