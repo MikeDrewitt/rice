@@ -33,6 +33,8 @@ polybar-git # A alternative top bar
 z-git # z cd
 oh-my-zsh-git # oh my z shell
 zsh-syntax-highlighting # syntax highlighting 
+w3m # terminal web browser, shows images
+neofetch-git # replacement for screenfetch
 
 # laptop
 perl-x11-guitest
