@@ -1,9 +1,8 @@
 #!/usr/bin/env sh
 
 # Terminate already running bar instances
-  killall -q lemonbuddy
+killall -q lemonbuddy
 
 lemonbuddy laptop &
-
 
 echo "Bars launched..."

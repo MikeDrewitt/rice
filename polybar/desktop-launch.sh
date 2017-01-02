@@ -1,12 +1,11 @@
 #!/usr/bin/env sh
 
 # Terminate already running bar instances
-  killall -q lemonbuddy
+  killall -q polybar
 
 # lemonbuddy laptop &
-lemonbuddy desktop_center &
-lemonbuddy desktop_left &
-lemonbuddy desktop_right &
-
+polybar center &
+polybar left &
+polybar right &
 
 echo "Bars launched..."

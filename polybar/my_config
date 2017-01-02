@@ -1,126 +1,97 @@
-[bar/center]
-monitor = DVI-D-0
+[bar/desktop_main]
+monitor = DVI-I-1
 width = 100%
 height = 25
 clickareas = 35
 
-background = #3f3f3f
+background = #A03f3f3f
 foreground = #D3DAE3
 linecolor = #ffffff
 
 border-color = #00FFFFFF
-border-left = 0
-border-right = 0
-border-top = 0
+border-left = 10
+border-right = 10
+border-top = 10
 
 module-margin-left = 2
 module-margin-right = 2
 
 spacing = 3
-lineheight = 4
+lineheight = 3
 
 font-0 = FontAwesome:size=8;
 font-1 = SanFranciscoDisplay:size=8:weight=bold;0;
 
-modules-left = i3 play_music 
-modules-center = 
+modules-left =  powermenu play_music 
+modules-center = i3
 modules-right = volume clock
 
 tray-background = #60e7ecdb
 
-[bar/left]
+[bar/desktop_second]
 monitor = HDMI-0
-modules-left = clock volume 
-modules-center = 
-modules-right = i3
+width = 100%
+height = 25
+clickareas = 35
 
-width = ${bar/center.width}
-height = ${bar/center.height}
-clickareas = ${bar/center.clickareas}
+background = #A03f3f3f
+foreground = #D3DAE3
+linecolor = #ffffff
 
-background = ${bar/center.background}
-foreground = ${bar/center.foreground}
-linecolor = ${bar/center.linecolor}
+border-color = #00FFFFFF
+border-left = 10
+border-right = 10
+border-top = 10
 
-border-color = ${bar/center.border-color}
-border-left = ${bar/center.border-left}
-border-right = ${bar/center.border-right}
-border-top = ${bar/center.border-top}
+module-margin-left = 2
+module-margin-right = 2
 
-module-margin-left = ${bar/center.module-margin-left}
-module-margin-right = ${bar/center.module-margin-right}
+spacing = 3
+lineheight = 3
 
-spacing = ${bar/center.spacing}
-lineheight = ${bar/center.lineheight}
+font-0 = FontAwesome:size=8;
+font-1 = SanFranciscoDisplay:size=8:weight=bold;0;
 
-font-0 = ${bar/center.font-0}
-font-1 = ${bar/center.font-1}
-
-;tray-position = right
-tray-background = ${bar/center.tray-background}
-
-[bar/right]
-monitor = DP-2
 modules-left = i3 
 modules-center = 
 modules-right = volume clock
 
-
-width = ${bar/center.width}
-height = ${bar/center.height}
-clickareas = ${bar/center.clickareas}
-
-background = ${bar/center.background}
-foreground = ${bar/center.foreground}
-linecolor = ${bar/center.linecolor}
-
-border-color = ${bar/center.border-color}
-border-left = ${bar/center.border-left}
-border-right = ${bar/center.border-right}
-border-top = ${bar/center.border-top}
-
-module-margin-left = ${bar/center.module-margin-left}
-module-margin-right = ${bar/center.module-margin-right}
-
-spacing = ${bar/center.spacing}
-lineheight = ${bar/center.lineheight}
-
-font-0 = ${bar/center.font-0}
-font-1 = ${bar/center.font-1}
-
 ;tray-position = right
-tray-background = ${bar/center.tray-background}
+tray-background = #60e7ecdb
+
 
 [bar/laptop]
 ;monitor = eDP-1
+width = 100%
+height = 35
+clickareas = 35
+
+background = #A03f3f3f
+foreground = #D3DAE3
+linecolor = #ffffff
+
+border-color = #00FFFFFF
+border-left = 10
+border-right = 10
+border-top = 10
+
+module-margin-left = 2
+module-margin-right = 2
+
+spacing = 3
+lineheight = 3
+
+dock = false
+
+font-0 = FontAwesome:size=8;-4
+font-1 = SanFranciscoDisplay:size=8:weight=bold;0;
+
 modules-left =  powermenu play_music 
 modules-center = i3
 modules-right = volume wireless-network battery clock
 
-width = ${bar/center.width}
-height = ${bar/center.height}
-clickareas = ${bar/center.clickareas}
-
-background = ${bar/center.background}
-foreground = ${bar/center.foreground}
-linecolor = ${bar/center.linecolor}
-
-border-color = ${bar/center.border-color}
-border-left = ${bar/center.border-left}
-border-right = ${bar/center.border-right}
-border-top = ${bar/center.border-top}
-
-module-margin-left = ${bar/center.module-margin-left}
-module-margin-right = ${bar/center.module-margin-right}
-
-spacing = ${bar/center.spacing}
-lineheight = ${bar/center.lineheight}
-
-font-0 = ${bar/center.font-0}
-font-1 = ${bar/center.font-1}
-
 tray-position = right
-tray-background = ${bar/center.tray-background}
+tray-background = #60e7ecdb
 tray-detached = false
 
 [module/battery]
@@ -179,10 +150,9 @@ label-visible-underline = #555555
 label-visible-padding = 4
 
 label-urgent = %name%
-label-urgent-foreground = #ffffff
-label-urgent-background = #e7aa2d
-label-urgent-underline = #3f3f3f
-label-urgent-padding = 6
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-padding = 4
 
 [module/wireless-network]
 type = internal/network
