@@ -92,13 +92,14 @@ font-1 = ${bar/center.font-1}
 tray-background = ${bar/center.tray-background}
 
 [bar/laptop]
-;monitor = eDP-1
-modules-left =  powermenu play_music 
+monitor = eDP1
+modules-left = powermenu play_music
 modules-center = i3
 modules-right = volume wireless-network battery clock
 
 width = ${bar/center.width}
-height = ${bar/center.height}
+;height = ${bar/center.height}
+height = 30 
 clickareas = ${bar/center.clickareas}
 
 background = ${bar/center.background}
@@ -231,7 +232,7 @@ type = custom/menu
 
 format-padding = 3
 
-label-open =%{B#8C2F3}%{-B}
+label-open = 
 label-close = 
 
 menu-0-0 =   Log Out
@@ -242,7 +243,7 @@ menu-0-2 =   Sleep
 menu-0-2-exec = ~/.scripts/i3exit suspend
 menu-0-3 =  Reboot
 menu-0-3-exec = menu-open-1
-menu-0-4 = %{B#8C2F39}   Power off  %{B-}
+menu-0-4 = %{B#8C2F39}  Power off  %{B-}
 menu-0-4-foreground = #FFF
 menu-0-4-exec = menu-open-2
 
@@ -269,6 +270,6 @@ format-foreground = #333
 
 format-underline = #FFFFFF
 
-format-padding = 4
+format-padding = 5
 
 # vim:filetype=dosini
