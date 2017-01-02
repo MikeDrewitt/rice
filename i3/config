@@ -1,6 +1,6 @@
 #Startup
 exec --no-startup-id nm-applet
-exec --no-startup-id ~/.scripts/setWallpaper ~/.scripts/currentWallpaper.jpg
+exec_always --no-startup-id ~/.scripts/setWallpaper ~/.scripts/currentWallpaper.jpg
 #exec --no-startup-id ~/.scripts/flux.sh
 
 # Workspaces Statup

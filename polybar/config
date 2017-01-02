@@ -4,7 +4,7 @@ width = 100%
 height = 25
 clickareas = 35
 
-background = #3f3f3f
+background = #DD3f3f3f
 foreground = #D3DAE3
 linecolor = #ffffff
 
@@ -22,8 +22,8 @@ lineheight = 4
 font-0 = FontAwesome:size=8;
 font-1 = SanFranciscoDisplay:size=8:weight=bold;0;
 
-modules-left = i3 play_music 
-modules-center = 
+modules-left = powermenu play_music 
+modules-center = i3
 modules-right = volume clock
 
 tray-background = #60e7ecdb
