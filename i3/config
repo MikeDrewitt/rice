@@ -63,7 +63,7 @@ bindsym $mod+Shift+m workspace " files"; exec thunar
 bindsym $mod+t exec $term
 bindsym $mod+Shift+a exec atom; workspace " atom"
 bindsym $mod+Control+space exec ~/.scripts/lock.sh
-bindsym $mod+h workspace " chat"; exec slack; exec teamspeak3
+bindsym $mod+Shift+s workspace " chat"; exec slack; exec teamspeak3
 bindsym $mod+s workspace " steam"; exec sh ~/.scripts/steam.sh
 
 # Screenshots
