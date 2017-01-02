@@ -11,7 +11,7 @@ exec --no-startup-id "i3-msg 'workspace  home'"
 #exec --no-startup-id xinput --set-prop 13 "Synaptics Two-Finger Scrolling" 1 1
 #exec --no-startup-id perl ~/.scripts/xSwipe/xSwipe.pl -m 30
 #exec --no-startup-id xmodmap ~/.xmodmaprc
-#exec --no-startup-id compton -c -f --vsync opengl --config ~/.i3/compton.conf -b
+#exec --no-startup-id compton -c -f --vsync opengl --config ~/.i3/compton/compton.conf -b
 #set $audioOutput 1
 #set $fontSize 14
 #set $barFontSize 12
@@ -20,7 +20,7 @@ exec --no-startup-id "i3-msg 'workspace  home'"
 exec_always --no-startup-id xrandr --output DP-2 --auto --right-of DVI-D-0
 exec_always --no-startup-id xrandr --output HDMI-0 --auto --left-of DVI-D-0
 exec_always --no-startup-id ~/.config/polybar/desktop-launch.sh
-exec_always --no-startup-id compton -c -f --config ~/.i3/compton-desktop.conf -b 
+exec_always --no-startup-id compton -c -f --config ~/.i3/compton/compton-desktop.conf -b 
 exec --no-startup-id systemctl enable ckb-daemon && systemctl start ckb-daemon
 exec --no-startup-id ckb &indsym Control+$alt+Left move workspace to output left
 bindsym Control+$alt+Right move workspace to output right
