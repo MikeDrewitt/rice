@@ -22,8 +22,9 @@ exec_always --no-startup-id xrandr --output HDMI-0 --auto --left-of DVI-D-0
 exec_always --no-startup-id ~/.config/polybar/desktop-launch.sh
 exec_always --no-startup-id compton -c -f --config ~/.i3/compton/desktop.conf -b 
 exec --no-startup-id systemctl enable ckb-daemon && systemctl start ckb-daemon
-exec --no-startup-id ckb &indsym Control+$alt+Left move workspace to output left
+exec --no-startup-id ckb &
 bindsym Control+$alt+Right move workspace to output right
+bindsym Control+$alt+Left move workspace to output left
 bindsym $mod+Shift+w exec ~/.scripts/windows.sh
 set $audioOutput 2
 set $fontSize 9
