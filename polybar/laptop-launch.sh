@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 
 # Terminate already running bar instances
-killall -q lemonbuddy
+killall -q polybar
 
-lemonbuddy laptop &
+polybar laptop &
 
 echo "Bars launched..."
