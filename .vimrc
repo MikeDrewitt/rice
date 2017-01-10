@@ -202,6 +202,10 @@ nnoremap <leader>d :vertical diffsplit<CR>
 " Open file browser
 nnoremap <leader>f :Explore<CR>
 
+" Editor Controls
+noremap <c-s-up> :call feedkeys( line('.')==1 ? '' : 'ddkP' )<CR>
+noremap <c-s-down> ddp
+
 " Buffer selection
 nnoremap <leader>n :bn<CR>
 nnoremap <leader>p :bp<CR>
