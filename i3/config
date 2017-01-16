@@ -49,22 +49,18 @@ assign [title="(?i)atom"] " atom"
 assign [title="(?i)steam"] " steam"
 assign [title="(?i)plex"] " plex"
 assign [title="(?i)LibreOffice"] " office"
-#assign [title="(?i)minecraft] " gaming"
-#assign [class="(?i)$browser"] $browser
-#assign [class="(?i)gimp|inkscape"] gfx
-#assign [class="(?i)spotify"] " spotify"
-
 
 # Custom key-bindings
 bindsym $mod+c exec $browser; workspace  chrome
-bindsym $mod+Shift+p exec gpmdp ;workspace  play 
 bindsym $mod+m workspace " files"; exec gnome-terminal -e ranger
-bindsym $mod+Shift+m workspace " files"; exec thunar
+bindsym $mod+s workspace " steam"; exec sh ~/.scripts/steam.sh
 bindsym $mod+t exec $term
 bindsym $mod+Shift+a exec atom; workspace " atom"
-bindsym $mod+Control+space exec ~/.scripts/lock.sh
+bindsym $mod+Shift+m workspace " files"; exec thunar
+bindsym $mod+Shift+p exec gpmdp ;workspace  play 
 bindsym $mod+Shift+s workspace " chat"; exec slack; exec teamspeak3
-bindsym $mod+s workspace " steam"; exec sh ~/.scripts/steam.sh
+bindsym $mod+Shift+t workspace " transmission"; exec transmission-gtk
+bindsym $mod+Control+space exec ~/.scripts/lock.sh
 
 # Screenshots
 set $screenshots ~/Pictures/Screenshots
