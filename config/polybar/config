@@ -22,8 +22,8 @@ lineheight = 4
 font-0 = FontAwesome:size=8;
 font-1 = SanFranciscoDisplay:size=8:weight=bold;0;
 
-modules-left = powermenu play_music 
-modules-center = i3
+modules-left = i3 play_music 
+modules-center = 
 modules-right = volume clock
 
 tray-background = #60e7ecdb
@@ -130,7 +130,7 @@ battery = BAT0
 adapter = ADP1
 full-at = 98
 
-format-charging =<animation-charging>   %{F#e9a15f}%{F-} <label-charging>
+format-charging =<animation-charging> %{F#e9a15f}%{F-} <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 format-full = <ramp-capacity> <label-full>
 
@@ -156,7 +156,9 @@ animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
-animation-charging-framerate = 750
+animation-charging-framerate = 1000
+
+format-underline = #FFFFFF
 
 [module/i3]
 type = internal/i3
@@ -169,7 +171,7 @@ index-sort = true
 label-focused = %name%
 label-focused-foreground = #ffffff
 label-focused-background = #3f3f3f
-label-focused-underline = #e7aa2d
+label-focused-underline = #FF5A5F
 label-focused-padding = 6
 
 label-unfocused = %name%
@@ -267,9 +269,7 @@ date = %{F-}%{B-}     %m-%d-%Y   |      %H:%M:%S   %{F-}%{B-}
 
 format-background = #CCe7ecdb
 format-foreground = #333
-
 format-underline = #FFFFFF
-
 format-padding = 5
 
 # vim:filetype=dosini
