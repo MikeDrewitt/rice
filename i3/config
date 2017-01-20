@@ -253,12 +253,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# hey I'm a comment!
-
-# special
-set $foreground #d3dae3
-set $background #383c4a
-
 # black
 set $black0  #353945
 set $black8  #2f343f
@@ -267,23 +261,19 @@ set $black8  #2f343f
 set $red1  #e25263
 set $red9  #e3818d
 
-# white
-set $white1 #FFFFFF
-set $white7  #CCCCCC
-set $white15 #8a929a
-
 set $transparent #00000000
-
-# mustard yellow
+set $foreground #d3dae3
+set $background #383c4a
 set $barColor #282A2FB0
 set $activeWindow #FF5A5F
+set $indicator #BFD7EAB
 
-# class                 bg          border      text        indicator
-client.focused          $background $activeWindow $foreground $activeWindow
-client.focused_inactive $transparent $transparent  $foreground $white7
-client.unfocused        $background $black0     $foreground $white15
-client.urgent           $background $red1       $foreground	$red9
-client.placeholder      $background $background $foreground	$background
+# class                 bg          	border      	text        	indicator
+client.focused          $background 	$activeWindow 	$foreground 	$activeWindow
+client.focused_inactive $transparent 	$transparent  	$foreground 	$indicator
+client.unfocused        $transparent 	$transparent   	$foreground 	$indicator
+client.urgent           $background 	$red1       	$foreground		$indicator
+client.placeholder      $background 	$background 	$foreground		$background
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {

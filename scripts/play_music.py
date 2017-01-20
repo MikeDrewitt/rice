@@ -12,7 +12,7 @@ def main():
         if data['playing']:
             print('{title} by {artist}'.format(title=data['song']['title'], artist=data['song']['artist']));
         else:
-            print('              ')
+            print(' ')
 
 if __name__ == '__main__':
     main()

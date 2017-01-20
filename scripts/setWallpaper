@@ -1,14 +1,5 @@
-#!/usr/bin/python
+#!/bin/bash
 
-import sys
-import os 
+feh --bg-scale $1
 
-CURRENT_WALLPAPER = ' ~/.scripts/currentWallpaper.jpg'
-
-try: 
-    if sys.argv[1]:
-        os.system('feh --bg-scale ' + sys.argv[1])
-        os.system('cp ' + sys.argv[1] + CURRENT_WALLPAPER)
-except IndexError:
-    os.system('feh --bg-scale '+ CURRENT_WALLPAPER)
-
+cp $1 ~/.scripts/currentWallpaper.jpg

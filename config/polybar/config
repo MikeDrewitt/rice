@@ -4,7 +4,7 @@ width = 100%
 height = 25
 clickareas = 35
 
-background = #DD3f3f3f
+background = #AA3f3f3f
 foreground = #D3DAE3
 linecolor = #ffffff
 
@@ -17,7 +17,7 @@ module-margin-left = 2
 module-margin-right = 2
 
 spacing = 3
-lineheight = 4
+lineheight = 4 
 
 font-0 = FontAwesome:size=8;
 font-1 = SanFranciscoDisplay:size=8:weight=bold;0;
@@ -120,7 +120,7 @@ lineheight = ${bar/center.lineheight}
 font-0 = ${bar/center.font-0}
 font-1 = ${bar/center.font-1}
 
-tray-position = right
+#tray-position = right
 tray-background = ${bar/center.tray-background}
 tray-detached = false
 
@@ -130,14 +130,21 @@ battery = BAT0
 adapter = ADP1
 full-at = 98
 
-format-charging =<animation-charging> %{F#e9a15f}%{F-} <label-charging>
+format-charging =<animation-charging>  %{F#e9a15f}%{F-} <label-charging>
+format-charging-underline = 
+
 format-discharging = <ramp-capacity> <label-discharging>
+#format-discharging-underline = #0B3954 
+
 format-full = <ramp-capacity> <label-full>
+format-full-underline = 
 
 ramp-capacity-0 = 
 ramp-capacity-0-foreground = #f53c3c
+#ramp-capacity-0-underline = #C81D25
 ramp-capacity-1 = 
 ramp-capacity-1-foreground = #ffa900
+#ramp-capacity-1-underline = #FF5A5F
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
@@ -157,8 +164,6 @@ animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-framerate = 1000
-
-format-underline = #FFFFFF
 
 [module/i3]
 type = internal/i3
@@ -184,7 +189,7 @@ label-visible-padding = 4
 label-urgent = %name%
 label-urgent-foreground = #ffffff
 label-urgent-background = #e7aa2d
-label-urgent-underline = #3f3f3f
+#label-urgent-underline = #3f3f3f
 label-urgent-padding = 6
 
 [module/wireless-network]
@@ -195,6 +200,8 @@ ping-interval = 10
 udspeed-minwidth = 3
 
 format-connected = <ramp-signal> <label-connected>
+#format-connected-underline = #FFFFFF
+
 label-connected =  %essid% | %{F#CCC}%local_ip%%{F-}
 label-disconnected = not connected
 label-disconnected-foreground = #66
@@ -215,6 +222,8 @@ animation-packetloss-framerate = 500
 type = internal/volume
 
 format-volume = <ramp-volume> <label-volume>
+#format-volume-underline = #FFFFFF
+
 label-muted = %{F#dd7e66}%{F-} %{F#CCC}muted%{F-}
 
 ramp-volume-0 = 
@@ -267,9 +276,9 @@ type = internal/date
 interval = 1
 date = %{F-}%{B-}     %m-%d-%Y   |      %H:%M:%S   %{F-}%{B-}
 
-format-background = #CCe7ecdb
-format-foreground = #333
-format-underline = #FFFFFF
+format-background = ${bar/center.background}
+format-foreground = #BFD7EA
+#format-underline = #FF5A5F
 format-padding = 5
 
 # vim:filetype=dosini
