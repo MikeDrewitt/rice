@@ -44,8 +44,9 @@ bcwc-pcie-dkms # apple webcam
 kbdlight # keyboad backlight
 
 # desktop
-nvidia
-nvidia-libigl # Obligatory Drivers for nvidia
+nvidia-beta
+nvidia-libgl-beta # Obligatory Drivers for nvidia
+lib32-nvidia-utils-beta # beta for 1080
 obs #Used for screen recording 
 ckb # Community Keyboard Drivers
 nvidia-libgl32 # Needed for Steam
