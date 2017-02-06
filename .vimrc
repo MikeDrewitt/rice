@@ -33,7 +33,7 @@ call vundle#begin()
 	Plugin 'gmarik/Vundle.vim'
 
 	"Put your non-Plugin stuff after this line
-	Plugin 'Shougo/neocomplete'				" Automatic keyword completion
+	Plugin 'Shougo/neocomplete'					" Automatic keyword completion
 	Plugin 'Shougo/unite.vim'					" Find files and buffers using ag
 	Plugin 'Shougo/vimfiler.vim'				" File Explorer :VimFiler
 	Plugin 'jlanzarotta/bufexplorer'			" Buffer Explorer :BufExplore
@@ -42,12 +42,19 @@ call vundle#begin()
 	Plugin 'scrooloose/syntastic'				" Syntax checking on write
 	Plugin 'tpope/vim-fugitive'					" Git wrapper
 	Plugin 'tpope/vim-surround'					" Manipulate quotes and brackets
+	
 	Plugin 'bling/vim-airline'					" Pretty statusbar
+	Plugin 'vim-airline/vim-airline-themes'
+
 	Plugin 'terryma/vim-multiple-cursors'		" Multiple cursors work
-	"Plugin 'edkolev/promptline.vim'				" Prompt generator for bash
-	Plugin 'altercation/vim-colors-solarized.git'	" Solarized theme
-	"Plugin 'nathanaelkane/vim-indent-guides.git'	" Show tab/space guides
+	Plugin 'nathanaelkane/vim-indent-guides.git' " Show tab/space guides
+	Plugin 'arcticicestudio/nord-vim'
+
+" Colorschemes
+	Plugin 'fneu/breezy'
 	Plugin 'morhetz/gruvbox'					"it a pretty theme
+	Plugin 'marciomazza/vim-brogrammer-theme'
+	Plugin 'edkolev/promptline.vim'				" Prompt generator for bash
 
   " All of your Plugins must be added before the following line
 call vundle#end()
@@ -142,7 +149,7 @@ else
 	" See comments in theme
 	let g:hybrid_use_Xresources = 1
 	set background=dark
-	colorscheme gruvbox
+	colorscheme brogrammer
 endif
 
 " gVim
@@ -298,10 +305,10 @@ if has("gui_win32") || &term == "gnome-terminal"
 	let g:airline_left_sep = ''
 	let g:airline_right_sep = ''
 	let g:airline_right_sep = ''
-	let g:airline_theme = 'gruvbox'
+	let g:airline_theme = 'base16_3024'
 else
 	let g:airline_powerline_fonts = 1
-	let g:airline_theme = 'gruvbox'
+	let g:airline_theme = 'base16_3024'
 endif
 
 " Promptline
