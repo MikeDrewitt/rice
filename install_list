@@ -24,7 +24,6 @@ compton-git	# transparency, drop shaddows, transitions
 feh	# wallpapers > required for set wallpaper script
 scrot # used for the lockscreen
 ttf-font-awesome # bar fonts and icons
-vim-promptline-git # vim plugin
 vundle-git # vim plugin manager
 vim-nerdtree # filetree for vim
 playerctl # used for media keys
