@@ -11,6 +11,7 @@ rsync # Used to sync files between system
 thunar # a gui file browser
 ranger # Vim like file browser
 htop # A better top
+tree # Good way to go throught the fs
 redshift # Used as a f.lux replacement	
 
 # rice
