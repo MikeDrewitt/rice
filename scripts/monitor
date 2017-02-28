@@ -1,0 +1,19 @@
+#!/usr/bin/python
+
+import sys
+import os 
+
+orientation = ''
+
+if sys.argv[1] == 'left':
+	orientation = '--left-of'
+if sys.argv[1] == 'right':
+	orientation = '--right-of'
+if sys.argv[1] == 'mirror':
+	orientation = '--same-as'
+else:
+	os.system('xrandr --output HDMI2 --off')
+
+# print(orientation)
+os.system('xrandr --output HDMI2 --auto ' + orientation + ' eDP1')
+
