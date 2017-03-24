@@ -32,6 +32,7 @@ dunst-git # a simple notifyer for gtk notifications
 polybar-git # A alternative top bar
 z-git # z cd
 oh-my-zsh-git # oh my z shell
+zsh-completions
 zsh-syntax-highlighting # syntax highlighting 
 w3m # terminal web browser, shows images
 neofetch-git # replacement for screenfetch
@@ -48,5 +49,5 @@ nvidia-beta
 nvidia-libgl-beta # Obligatory Drivers for nvidia
 lib32-nvidia-utils-beta # beta for 1080
 obs #Used for screen recording 
-ckb # Community Keyboard Drivers
+ckb-next-git # Community Keyboard Drivers
 nvidia-libgl32 # Needed for Steam

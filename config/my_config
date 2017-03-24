@@ -1,0 +1,244 @@
+[bar/desktop_main]
+monitor = DVI-I-1
+width = 100%
+height = 25
+clickareas = 35
+
+background = #A03f3f3f
+foreground = #D3DAE3
+linecolor = #ffffff
+
+border-color = #00FFFFFF
+border-left = 10
+border-right = 10
+border-top = 10
+
+module-margin-left = 2
+module-margin-right = 2
+
+spacing = 3
+lineheight = 3
+
+font-0 = FontAwesome:size=8;
+font-1 = SanFranciscoDisplay:size=8:weight=bold;0;
+
+modules-left =  powermenu play_music 
+modules-center = i3
+modules-right = volume clock
+
+tray-background = #60e7ecdb
+
+[bar/desktop_second]
+monitor = HDMI-0
+width = 100%
+height = 25
+clickareas = 35
+
+background = #A03f3f3f
+foreground = #D3DAE3
+linecolor = #ffffff
+
+border-color = #00FFFFFF
+border-left = 10
+border-right = 10
+border-top = 10
+
+module-margin-left = 2
+module-margin-right = 2
+
+spacing = 3
+lineheight = 3
+
+font-0 = FontAwesome:size=8;
+font-1 = SanFranciscoDisplay:size=8:weight=bold;0;
+
+modules-left = i3 
+modules-center = 
+modules-right = volume clock
+
+;tray-position = right
+tray-background = #60e7ecdb
+
+
+[bar/laptop]
+;monitor = eDP-1
+width = 100%
+height = 35
+clickareas = 35
+
+background = #A03f3f3f
+foreground = #D3DAE3
+linecolor = #ffffff
+
+border-color = #00FFFFFF
+border-left = 10
+border-right = 10
+border-top = 10
+
+module-margin-left = 2
+module-margin-right = 2
+
+spacing = 3
+lineheight = 3
+
+dock = false
+
+font-0 = FontAwesome:size=8;-4
+font-1 = SanFranciscoDisplay:size=8:weight=bold;0;
+
+modules-left =  powermenu play_music 
+modules-center = i3
+modules-right = volume wireless-network battery clock
+
+tray-position = right
+tray-background = #60e7ecdb
+tray-detached = false
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 98
+
+format-charging =<animation-charging>   %{F#e9a15f}%{F-} <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = #f53c3c
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = #ffa900
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+bar-capacity-width = 10
+bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
+bar-capacity-fill = 
+bar-capacity-fill-foreground = #ddffffff
+bar-capacity-fill-font = 3
+bar-capacity-empty = 
+bar-capacity-empty-font = 3
+bar-capacity-empty-foreground = #44ffffff
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+[module/i3]
+type = internal/i3
+
+pin-workspaces = true
+strip-wsnumbers = true
+wsname-maxlen = 3
+index-sort = true
+
+label-focused = %name%
+label-focused-foreground = #ffffff
+label-focused-background = #3f3f3f
+label-focused-underline = #e7aa2d
+label-focused-padding = 6
+
+label-unfocused = %name%
+label-unfocused-padding = 4
+
+label-visible = %name%
+label-visible-underline = #555555
+label-visible-padding = 4
+
+label-urgent = %name%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-padding = 4
+
+[module/wireless-network]
+type = internal/network
+interface = wlp3s0
+interval = 3.0
+ping-interval = 10
+udspeed-minwidth = 3
+
+format-connected = <ramp-signal> <label-connected>
+label-connected =  %essid% | %{F#CCC}%local_ip%%{F-}
+label-disconnected = not connected
+label-disconnected-foreground = #66
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+
+animation-packetloss-0 = 
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 
+animation-packetloss-1-foreground = ${bar/top.foreground}
+animation-packetloss-framerate = 500
+
+[module/volume]
+type = internal/volume
+
+format-volume = <ramp-volume> <label-volume>
+label-muted = %{F#dd7e66}%{F-} %{F#CCC}muted%{F-}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+
+[module/play_music]
+type = custom/script
+
+exec = ~/.scripts/play_music.py
+maxlen = 20
+ellipsis = true
+
+[module/powermenu]
+type = custom/menu
+
+format-padding = 3
+
+label-open =%{B#8C2F3}%{-B}
+label-close = 
+
+menu-0-0 =   Log Out
+menu-0-0-exec = ~/.scripts/i3exit logout
+menu-0-1 =  Lock
+menu-0-1-exec = ~/.scripts/i3exit lock
+menu-0-2 =   Sleep
+menu-0-2-exec = ~/.scripts/i3exit suspend
+menu-0-3 =  Reboot
+menu-0-3-exec = menu-open-1
+menu-0-4 = %{B#8C2F39}   Power off  %{B-}
+menu-0-4-foreground = #FFF
+menu-0-4-exec = menu-open-2
+
+menu-1-0 =  Reboot
+menu-1-0-foreground = #fba922
+menu-1-0-exec = ~/.scripts/i3exit reboot, mode "defualt"
+menu-1-1 =  Cancel
+menu-1-1-foreground = #fba922
+menu-1-1-exec = menu-open-0
+
+menu-2-0 = %{B#8C2F39}   Power off  %{B-}
+menu-2-0-foreground = #FFF
+menu-2-0-exec = ~/.scripts/i3exit shutdown, mode "defualt"
+menu-2-1 =  Cancel
+menu-2-1-exec = menu-open-0
+
+[module/clock]
+type = internal/date
+interval = 1
+date = %{F-}%{B-}     %m-%d-%Y   |      %H:%M:%S   %{F-}%{B-}
+
+format-background = #CCe7ecdb
+format-foreground = #333
+
+format-underline = #FFFFFF
+
+format-padding = 4
+
+# vim:filetype=dosini
