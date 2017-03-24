@@ -11,6 +11,7 @@ alias lla='ls -la'
 alias ..='cd ..'
 
 alias cls='clear'
+alias cl='clear'
 
 alias mikasa='ssh mikasa'
 alias timberlake='ssh timberlake'
@@ -24,6 +25,9 @@ alias hulk='ssh hulk'
 alias hawkeye='ssh hawkeye'
 alias warmachine='ssh warmachine'
 alias jarvis='ssh jarvis'
+alias jarvis-dev='ssh jarvis-dev'
+alias armstrong='ssh armstrong'
+alias bigdata='ssh bigdata'
 
 alias pacman='sudo pacman'
 alias reboot='sudo reboot'
@@ -32,5 +36,10 @@ alias chrome='google-chrome-unstable'
 #alias google-chrome='google-chrome-unstable'
 
 alias school='cd ~/Sync/school && vim +NERDTree'
+alias ops='cd ~/Sync/school/421*/vagrant && vagrant ssh'
 
 export PATH=$PATH:/home/michael/.scripts/
+export GOPATH=~/.go
+
+alias nr='network_restart'
+PATH=~/.eclipse:$PATH

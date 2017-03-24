@@ -8,13 +8,13 @@ exec --no-startup-id "i3-msg 'workspace  home'"
 
 # Laptop Stuff
 exec_always --no-startup-id ~/.config/polybar/laptop-launch.sh
-exec_always --no-startup-id xrandr --output eDP1 --dpi 145
+# exec_always --no-startup-id xrandr --output eDP1 --dpi 145
 exec --no-startup-id xinput --set-prop 13 "Synaptics Two-Finger Scrolling" 1 1
 exec --no-startup-id perl ~/.scripts/xSwipe/xSwipe.pl -m 30
 exec --no-startup-id xmodmap ~/.xmodmaprc
-exec --no-startup-id compton -c -f --vsync opengl --config ~/.i3/compton/laptop.conf -b
+exec_always --no-startup-id compton -c -f --vsync opengl --config ~/.i3/compton/laptop.conf -b
 
-set $fontSize 16
+set $fontSize 8
 set $barFontSize 12
 
 # Desktop Stuff
@@ -24,11 +24,14 @@ set $barFontSize 12
 #exec_always --no-startup-id compton -c -f --config ~/.i3/compton/desktop.conf -b 
 #exec --no-startup-id systemctl enable ckb-daemon && systemctl start ckb-daemon
 #exec --no-startup-id ckb &
-#bindsym Control+$alt+Right move workspace to output right
-#bindsym Control+$alt+Left move workspace to output left
 #bindsym $mod+Shift+w exec ~/.scripts/windows.sh
 #set $fontSize 9
 #set $barFontSize 9
+
+bindsym Control+$alt+Right move workspace to output right
+bindsym Control+$alt+Left move workspace to output left
+bindsym Control+$alt+Up move workspace to output up
+bindsym Control+$alt+Down move workspace to output down
 
 set $mod Mod4
 set $alt Mod1

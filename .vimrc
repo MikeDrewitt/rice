@@ -1,9 +1,9 @@
 " ~/.vimrc		-> linux $VIM/.vimrc	-> win
 "
-" Archivo de configuración del editor VIM (er mejo!)
+" Archivo de configuraciï¿½n del editor VIM (er mejo!)
 "
 " Trato que funcione tanto en WIN (con gvim) como en LINUX (vim y gvim)
-" Configuración ontenida de W0ng -> https://github.com/w0ng
+" Configuraciï¿½n ontenida de W0ng -> https://github.com/w0ng
 "
 " Vicente Gimeno Morales - E7 Version 2.8 - 16 sep 2015
 "======================================================================#
@@ -54,6 +54,7 @@ call vundle#begin()
 
 	Plugin 'Valloric/YouCompleteMe'
 	Plugin 'jiangmiao/auto-pairs'
+	Plugin 'qpkorr/vim-bufkill'					" Better vim buffers
 
 	Plugin 'scrooloose/nerdtree'
 
@@ -173,8 +174,8 @@ endif
 if has('gui_running')
 	if has("win32")
 		set guifont=Lucida_Console:h8
-		set lines=40							" Nº lines
-		set columns=90							" Nº columns
+		set lines=40							" Nï¿½ lines
+		set columns=90							" Nï¿½ columns
 	else
 		set guifont=Inconsolata\ for\ Powerline\ 10
 	endif
@@ -212,6 +213,10 @@ map! <ESC>Od <C-Left>
 map! <ESC>Oa <C-Up>
 map! <C-@> <C-Space>
 
+map <S-j> :+10<CR>
+map <S-k> :-10<CR>
+
+
 " Map leader
 let mapleader = ','
 
@@ -246,7 +251,7 @@ nnoremap <M-p> :bp<CR>
 " Spell checking
 nnoremap <leader>s :set spell!<CR>
 " Show tabs
-nmap <Leader>t :set list lcs=tab:+·<CR>
+nmap <Leader>t :set list lcs=tab:+ï¿½<CR>
 nmap <Leader>nt :set nolist<CR>
 " Prepare tabularize
 nmap <Leader>ta :'<,'> Tabularize /
@@ -351,14 +356,14 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " Indent rules, Linux Kernel Coding Style
 autocmd FileType c
 	\ setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
-	"\ list lcs=tab:+·
+	"\ list lcs=tab:+ï¿½
 autocmd FileType cpp,java,javascript,json,markdown,php,python
 	\ setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 	"\ list lcs=tab:+.
 autocmd FileType markdown setlocal textwidth=80
 autocmd FileType prg
 	\ setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4 cindent
-	"\ list lcs=tab:+·
+	"\ list lcs=tab:+ï¿½
 
 " Txt
 autocmd FileType text setlocal textwidth=79 wrap
@@ -436,3 +441,4 @@ endfunction
 
 
 " vim: set noexpandtab tabstop=4 shiftwidth=4 softtabstop=4:
+
