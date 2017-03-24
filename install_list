@@ -26,7 +26,7 @@ feh	# wallpapers > required for set wallpaper script
 scrot # used for the lockscreen
 ttf-font-awesome # bar fonts and icons
 vundle-git # vim plugin manager
-vim-nerdtree # filetree for vim
+powerline-fonts-git # proper powerline fonts for the system
 playerctl # used for media keys
 dunst-git # a simple notifyer for gtk notifications
 polybar-git # A alternative top bar
