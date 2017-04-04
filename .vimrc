@@ -1,13 +1,12 @@
 " ~/.vimrc		-> linux $VIM/.vimrc	-> win
 "
-" Archivo de configuraciï¿½n del editor VIM (er mejo!)
+" Archivo de configuración del editor VIM (er mejo!)
 "
 " Trato que funcione tanto en WIN (con gvim) como en LINUX (vim y gvim)
-" Configuraciï¿½n ontenida de W0ng -> https://github.com/w0ng
+" Configuración ontenida de W0ng -> https://github.com/w0ng
 "
 " Vicente Gimeno Morales - E7 Version 2.8 - 16 sep 2015
 "======================================================================#
-"
 " Compability {{{
 " -----------------------------------------------------------------------------
 "
@@ -54,9 +53,12 @@ call vundle#begin()
 
 	Plugin 'Valloric/YouCompleteMe'
 	Plugin 'jiangmiao/auto-pairs'
-	Plugin 'qpkorr/vim-bufkill'					" Better vim buffers
 
 	Plugin 'scrooloose/nerdtree'
+
+	Plugin 'tpope/vim-sensible'
+	Plugin 'fweep/vim-tabber'
+	Plugin 'vim-scripts/AfterColors.vim'
 
 	" Colorschemes
 	Plugin 'morhetz/gruvbox'					" it a pretty theme
@@ -92,7 +94,7 @@ syntax on
 
 " General
 set backspace=2						" enable <BS> for everything
-set colorcolumn=80					" visual indicator of column
+set colorcolumn=100					" visual indicator of column
 set number							" Show line numbers
 set completeopt=longest,menuone		" Autocompletion options
 set complete=.,w,b,u,t,i,d			" autocomplete options (:help 'complete')
@@ -116,6 +118,7 @@ set wildmenu						" enhanced cmd line completion
 set wildchar=<TAB>					" key for line completion
 set noerrorbells					" no error sound
 set splitright						" Split new buffer at right
+set scrolloff=20					" Keeps you 20 lines form the bottom. Let's you see more
 
 " Folding
 set foldignore=						" don't ignore anything when folding
@@ -150,16 +153,17 @@ set shm=atI							" cut large messages
 set t_Co=256
 
 " Copy Paste
-vmap <C-c> "+yi
-"vmap <C-x> "+c
-"vmap <C-v> c<ESC>"+p
-"imap <C-v> <ESC>"+pa
+" vmap <C-c> "+yi
+" vmap <C-x> "+c
+" vmap <C-v> c<ESC>"+p
+" imap <C-v> <ESC>"+pa
 
 set background=dark
 
 if &term == "xterm"
+	let g:hybrid_use_Xresources = 1
 	set background=dark
-	colorscheme base16-default
+	colorscheme quantum  
 else
 	" Theme setting.
 	" Two principal themes for dark and light background
@@ -167,15 +171,19 @@ else
 	" See comments in theme
 	let g:hybrid_use_Xresources = 1
 	set background=dark
-	colorscheme quantum  
+	set termguicolors
+	colorscheme breezy 
+	let g:quantum_black=1
+
+	"hi Normal ctermbg=0
 endif
 
 " gVim
 if has('gui_running')
 	if has("win32")
 		set guifont=Lucida_Console:h8
-		set lines=40							" Nï¿½ lines
-		set columns=90							" Nï¿½ columns
+		set lines=40							" Nº lines
+		set columns=90							" Nº columns
 	else
 		set guifont=Inconsolata\ for\ Powerline\ 10
 	endif
@@ -213,9 +221,8 @@ map! <ESC>Od <C-Left>
 map! <ESC>Oa <C-Up>
 map! <C-@> <C-Space>
 
-map <S-j> :+10<CR>
-map <S-k> :-10<CR>
-
+map <ESC>10j <C-j>
+map <ESC>10k <C-k>
 
 " Map leader
 let mapleader = ','
@@ -251,7 +258,7 @@ nnoremap <M-p> :bp<CR>
 " Spell checking
 nnoremap <leader>s :set spell!<CR>
 " Show tabs
-nmap <Leader>t :set list lcs=tab:+ï¿½<CR>
+nmap <Leader>t :set list lcs=tab:+·<CR>
 nmap <Leader>nt :set nolist<CR>
 " Prepare tabularize
 nmap <Leader>ta :'<,'> Tabularize /
@@ -286,7 +293,11 @@ inoremap <expr> <C-Space> pumvisible() ? '<C-n>' :
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 " Toggle colors
-noremap <F4> :call ToggleColours()<CR>
+
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+
+" noremap <F4> :call ToggleColours()<CR>
 " Ctags Bar
 noremap <F9> :TagbarToggle<CR>
 
@@ -327,10 +338,10 @@ if has("gui_win32") || &term == "gnome-terminal"
 	let g:airline_left_sep = ''
 	let g:airline_right_sep = ''
 	let g:airline_right_sep = ''
-	let g:airline_theme = 'quantum'
+	let g:airline_theme = 'breezy'
 else
 	let g:airline_powerline_fonts = 1
-	let g:airline_theme = 'quantum'
+	let g:airline_theme = 'breezy'
 endif
 
 " Promptline
@@ -356,14 +367,14 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " Indent rules, Linux Kernel Coding Style
 autocmd FileType c
 	\ setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
-	"\ list lcs=tab:+ï¿½
+	"\ list lcs=tab:+·
 autocmd FileType cpp,java,javascript,json,markdown,php,python
 	\ setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 	"\ list lcs=tab:+.
 autocmd FileType markdown setlocal textwidth=80
 autocmd FileType prg
 	\ setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4 cindent
-	"\ list lcs=tab:+ï¿½
+	"\ list lcs=tab:+·
 
 " Txt
 autocmd FileType text setlocal textwidth=79 wrap
@@ -441,4 +452,3 @@ endfunction
 
 
 " vim: set noexpandtab tabstop=4 shiftwidth=4 softtabstop=4:
-
