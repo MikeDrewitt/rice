@@ -50,6 +50,7 @@ call vundle#begin()
 	
 	Plugin 'bling/vim-airline'					" Pretty statusbar
 	Plugin 'edkolev/promptline.vim'				" Prompt generator for bash
+	Plugin 'qpkorr/vim-bufkill'					" Better vim buffers
 
 	Plugin 'Valloric/YouCompleteMe'
 	Plugin 'jiangmiao/auto-pairs'
@@ -353,6 +354,15 @@ let g:promptline_preset = {
 	\'warn' : [ promptline#slices#last_exit_code() ]}
 let g:promptline_theme = 'air_e7'
 
+" Syntastic
+let g:syntastic_html_tidy_ignore_errors = [
+    \  '<html> attribute "lang" lacks value',
+    \  '<a> attribute "href" lacks value',
+	\  '<a> propietary attribute ',
+    \  'trimming empty <span>',
+    \  'trimming empty <h1>'
+    \ ]
+
 "}}}
 " Autocommands {{{
 " -----------------------------------------------------------------------------
@@ -367,23 +377,23 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " Indent rules, Linux Kernel Coding Style
 autocmd FileType c
 	\ setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
-	"\ list lcs=tab:+·
-autocmd FileType cpp,java,javascript,json,markdown,php,python
+	"\ list lcs=tab:+¿
+autocmd FileType cpp,java,php,python
 	\ setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 	"\ list lcs=tab:+.
 autocmd FileType markdown setlocal textwidth=80
 autocmd FileType prg
 	\ setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4 cindent
-	"\ list lcs=tab:+·
+	"\ list lcs=tab:+¿
 
 " Txt
 autocmd FileType text setlocal textwidth=79 wrap
 
 " Folding rules
 autocmd FileType c,cpp,java,prg setlocal foldmethod=syntax foldnestmax=5
-autocmd FileType css,html,htmldjango,xhtml
-	\ setlocal foldmethod=indent foldnestmax=20 noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
-
+autocmd FileType css,html,htmldjango,xhtml,javascript,json,markdown,controller,tpl,component
+	\ setlocal foldmethod=indent foldnestmax=20 expandtab tabstop=2 shiftwidth=2 softtabstop=2
+	\ list lcs=tab:+.
 
 " Set correct markdown extensions
 autocmd BufNewFile,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn
