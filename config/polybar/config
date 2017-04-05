@@ -128,7 +128,7 @@ tray-detached = false
 type = internal/battery
 battery = BAT0
 adapter = ADP1
-full-at = 98
+full-at = 99
 
 format-charging =<animation-charging>  %{F#e9a15f}%{F-} <label-charging>
 format-charging-underline = 
@@ -140,18 +140,16 @@ format-full = <ramp-capacity> <label-full>
 format-full-underline = 
 
 ramp-capacity-0 = 
-ramp-capacity-0-foreground = #f53c3c
-#ramp-capacity-0-underline = #C81D25
+ramp-capacity-0-foreground = #C81D25
 ramp-capacity-1 = 
-ramp-capacity-1-foreground = #ffa900
-#ramp-capacity-1-underline = #FF5A5F
+ramp-capacity-1-foreground = #FF5A5F
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
 
 bar-capacity-width = 10
 bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
-bar-capacity-fill = 
+bar-capacity-fill = 
 bar-capacity-fill-foreground = #ddffffff
 bar-capacity-fill-font = 3
 bar-capacity-empty = 
@@ -196,26 +194,34 @@ label-urgent-padding = 6
 type = internal/network
 interface = wlp3s0
 interval = 3.0
-ping-interval = 10
+ping-interval = 1
 udspeed-minwidth = 3
 
-format-connected = <ramp-signal> <label-connected>
-#format-connected-underline = #FFFFFF
+format-packetloss = <animation-packetloss> <label-connected>
 
-label-connected =  %essid% | %{F#CCC}%local_ip%%{F-}
+format-connected = <ramp-signal> <label-connected>
+; format-connected-underline = #FFFFFF
+
+label-connected = %essid% | %{F#CCC}%local_ip%%{F-}
 label-disconnected = not connected
 label-disconnected-foreground = #66
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
+ramp-signal-0 = 
+ramp-signal-0-foreground = #C81D25
+ramp-signal-1 = 
+ramp-signal-1-foreground = #FF5A5F
+ramp-signal-2 = 
+ramp-signal-2-foreground = #BFD7EA
+ramp-signal-3 = 
+ramp-signal-3-foreground = #5AB2FF
+ramp-signal-4 = 
+ramp-signal-4-foreground = #5AFFA8
 
-animation-packetloss-0 = 
-animation-packetloss-0-foreground = #ffa64c
-animation-packetloss-1 = 
-animation-packetloss-1-foreground = ${bar/top.foreground}
+
+animation-packetloss-0 = 
+animation-packetloss-0-foreground = #FF5A5F
+animation-packetloss-1 = 
+animation-packetloss-1-foreground = #C81D25
 animation-packetloss-framerate = 500
 
 [module/volume]
