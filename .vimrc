@@ -28,54 +28,50 @@ set encoding=utf-8		" always encode in utf
 
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-	" let Vundle manage Vundle, required
-	Plugin 'gmarik/Vundle.vim'
+	
+	Plugin 'gmarik/Vundle.vim'						" Plugin managers that makes the magic happen
 
-	"Put your non-Plugin stuff after this line
-	Plugin 'Shougo/neocomplete'				" Automatic keyword completion
-	Plugin 'Shougo/unite.vim'					" Find files and buffers using ag
-	Plugin 'Shougo/vimfiler.vim'				" File Explorer :VimFiler
-	Plugin 'jlanzarotta/bufexplorer'			" Buffer Explorer :BufExplore
-	Plugin 'godlygeek/tabular'					" Text alignment
-	Plugin 'majutsushi/tagbar'					" Display tags in a window
-	Plugin 'scrooloose/syntastic'				" Syntax checking on write
-	Plugin 'tpope/vim-fugitive'					" Git wrapper
-	Plugin 'tpope/vim-surround'					" Manipulate quotes and brackets
-	Plugin 'vim-airline/vim-airline-themes'
-	Plugin 'terryma/vim-multiple-cursors'		" Multiple cursors work
+	Plugin 'Shougo/neocomplete'						" Automatic keyword completion
+	Plugin 'Shougo/unite.vim'						" Find files and buffers using ag
+	Plugin 'Shougo/vimfiler.vim'					" File Explorer :VimFiler
+	Plugin 'jlanzarotta/bufexplorer'				" Buffer Explorer :BufExplore
+	Plugin 'godlygeek/tabular'						" Text alignment
+	Plugin 'majutsushi/tagbar'						" Display tags in a window
+	Plugin 'scrooloose/syntastic'					" Syntax checking on write
+	Plugin 'tpope/vim-fugitive'						" Git wrapper
+	Plugin 'tpope/vim-surround'						" Manipulate quotes and brackets
+	Plugin 'terryma/vim-multiple-cursors'			" Multiple cursors work
 	Plugin 'altercation/vim-colors-solarized.git'	" Solarized theme
 	Plugin 'nathanaelkane/vim-indent-guides.git'	" Show tab/space guides
-	Plugin 'antlypls/vim-colors-codeschool'
-	Plugin 'arcticicestudio/nord-vim'
-	
-	Plugin 'bling/vim-airline'					" Pretty statusbar
-	Plugin 'edkolev/promptline.vim'				" Prompt generator for bash
-	Plugin 'qpkorr/vim-bufkill'					" Better vim buffers
+	Plugin 'alvan/vim-closetag'						" Closes HTML Tags for you
+	Plugin 'tpope/vim-sensible'						" Scrolling/ Backspace actions
+	Plugin 'fweep/vim-tabber'						" Control tabs better
+	Plugin 'qpkorr/vim-bufkill'						" Better vim buffers ie: BD
+	Plugin 'vim-scripts/a.vim'						" C Tag reader 
 
-	Plugin 'Valloric/YouCompleteMe'
-	Plugin 'jiangmiao/auto-pairs'
+	Plugin 'bling/vim-airline'						" Pretty statusbar
+	Plugin 'vim-airline/vim-airline-themes'			" Themes for the pretty status bar
+	Plugin 'edkolev/promptline.vim'					" Prompt generator for bash
 
-	Plugin 'scrooloose/nerdtree'
+	Plugin 'Valloric/YouCompleteMe'					" Auto variable completion
+	Plugin 'jiangmiao/auto-pairs'					" Closes brackets, parens, etc
 
-	Plugin 'tpope/vim-sensible'
-	Plugin 'fweep/vim-tabber'
-	Plugin 'vim-scripts/AfterColors.vim'
+	Plugin 'scrooloose/nerdtree'					" If you have to ask, you're not ready
+
+	Plugin 'vim-scripts/AfterColors.vim'			" Adds aftercolor support
 
 	" Colorschemes
-	Plugin 'morhetz/gruvbox'					" it a pretty theme
-	Plugin 'marciomazza/vim-brogrammer-theme'
-	Plugin 'NLKNguyen/papercolor-theme'
-	Plugin 'fneu/breezy'
-	Plugin 'davidklsn/vim-sialoquent'
-	Plugin 'crater2150/vim-theme-chroma'
-	Plugin 'tyrannicaltoucan/vim-quantum'
+	Plugin 'morhetz/gruvbox'						" Greenish
+	Plugin 'marciomazza/vim-brogrammer-theme'		" Pastel colors on a dark background, too yellow
+	Plugin 'fneu/breezy'							" Rish colors, reds on a dark background
+	Plugin 'davidklsn/vim-sialoquent'				" Greyish Yellow Matted
+	Plugin 'tyrannicaltoucan/vim-quantum'			" Darker grey and green
+	Plugin 'arcticicestudio/nord-vim'				" Light grey and blue
+	Plugin 'antlypls/vim-colors-codeschool'			" Subdued grey and ugly green, and nice colors
 
-	Plugin 'vim-scripts/a.vim'
-	Plugin 'vimlab/split-term.vim'				" terminal splitting for nvim
+	" Plugin 'simeji/winresizer'				" resizer for vim windows
 
-	" Plugin 'simeji/winresizer'					" resizer for vim windows
-
-  " All of your Plugins must be added before the following line
+" Put your non-Plugin stuff after this line
 call vundle#end()
 
 autocmd VimEnter * NERDTree
@@ -84,9 +80,7 @@ if has("win32")
 	set runtimepath+=~/.vim
 endif
 
-"}}}
-" Settings {{{
-" -----------------------------------------------------------------------------
+" -------------------------------------- Settings --------------------------------------
 
 " File detection
 filetype on
@@ -153,12 +147,6 @@ set shm=atI							" cut large messages
 " Colours
 set t_Co=256
 
-" Copy Paste
-" vmap <C-c> "+yi
-" vmap <C-x> "+c
-" vmap <C-v> c<ESC>"+p
-" imap <C-v> <ESC>"+pa
-
 set background=dark
 
 if &term == "xterm"
@@ -204,9 +192,7 @@ if &diff
 	set diffopt=filler,foldcolumn:0
 endif
 
-"}}}
-" Mappings {{{
-" -----------------------------------------------------------------------------
+" --------------------------------------- Mappings -------------------------------------
 
 " Fixes linux console keys
 " "od -a" and get the code
@@ -294,6 +280,8 @@ inoremap <expr> <C-Space> pumvisible() ? '<C-n>' :
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 " Toggle colors
+
+nnoremap <F3> gg=G<CR>
 
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
