@@ -1,5 +1,5 @@
 #Startup
-exec_always --no-startup-id ~/.scripts/setWallpaper ~/.scripts/currentWallpaper.jpg
+exec_always --no-startup-id ~/.scripts/set_wallpaper ~/.scripts/currentWallpaper.jpg
 exec --no-startup-id nm-applet
 #exec --no-startup-id ~/.scripts/flux.sh
 
@@ -116,16 +116,12 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return workspace " term"; exec $term
-# start a terminal in current working directory
-bindsym $mod+Shift+Return exec $term -d "`xcwd`"
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start a program launcher
 bindsym $mod+space exec ~/.i3/rofi.sh
-# show list of windows
-bindsym $mod+d+Shift exec rofi -show window
 
 # change focus
 bindsym $mod+Left focus left
@@ -139,7 +135,7 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in hori"zontal orientation
+# split in horizontal orientation
 bindsym $mod+g split h
 
 # split in vertical orientation
@@ -155,9 +151,6 @@ bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-#bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 Bindsym $mod+a focus parent
@@ -216,7 +209,7 @@ bindsym $mod+Shift+Control+Left move container to workspace prev
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart && exec setWallpaper
+bindsym $mod+Shift+r restart && exec set_wallpaper
 # exit i3
 bindsym $mod+Shift+e exec ~/.scripts/i3exit logout
 # lock screen
@@ -226,9 +219,7 @@ bindsym XF86ScreenSaver exec ~/.scirpts/i3exit lock
 bindsym XF86AudioRaiseVolume exec "amixer set Master unmute; amixer -q sset Master 1%+"
 bindsym XF86AudioLowerVolume exec "amixer set Master unmute; amixer -q sset Master 1%-"
 bindsym XF86AudioMute exec "amixer -q -D pulse sset Master toggle"
-#bindsym XF86AudioRaiseVolume exec "pactl set-sink-mute $audioOutput false ; pactl set-sink-volume $audioOutput +1%"
-#bindsym XF86AudioLowerVolume exec "pactl set-sink-mute $audioOutput false ; pactl set-sink-volume $audioOutput -1%"
-#bindsym XF86AudioMute exec "pactl set-sink-mute $audioOutput toggle"
+
 bindsym XF86AudioPlay exec "playerctl play-pause"
 bindsym XF86AudioNext exec "playerctl next"
 bindsym XF86AudioPrev exec "playerctl previous"
@@ -242,7 +233,8 @@ bindsym XF86KbdBrightnessUp exec kbdlight up 5
 bindsym XF86KbdBrightnessDown exec kbdlight down 5
 
 # resize window (you can also use the mouse for that)
-mode "resize" {
+set $resize Resize: (j) up, (k) down, (h) left, (l) right, (n) no gaps, (b) gaps
+mode "$resize" {
     # These bindings trigger as soon as you enter the resize mode
 
     bindsym h resize shrink width 10 px or 10 ppt
@@ -256,24 +248,19 @@ mode "resize" {
     bindsym Up resize shrink height 10 px or 10 ppt
     bindsym Right resize grow width 10 px or 10 ppt
 
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-
     # Toggle gaps
     bindsym n gaps inner current set 0; gaps outer all set 0
     bindsym b gaps inner current set $gaps_inner; gaps outer all set $gaps_outer
+	
+	# back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
-
-# black
-set $black0  #353945
-set $black8  #2f343f
+bindsym $mod+r mode "$resize"
 
 # red
 set $red1  #e25263
-set $red9  #e3818d
 
 set $transparent #00000000
 set $foreground #d3dae3
@@ -289,7 +276,7 @@ client.unfocused        $transparent 	$transparent   	$foreground 	$indicator
 client.urgent           $background 	$red1       	$foreground		$indicator
 client.placeholder      $background 	$background 	$foreground		$background
 
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+set $mode_system System: (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id ~/.scripts/i3exit lock, mode "default"
     bindsym e exec --no-startup-id ~/.scripts/i3exit logout, mode "default"
@@ -304,13 +291,4 @@ mode "$mode_system" {
 }
 bindsym $mod+BackSpace mode "$mode_system"
 
-set $mode_gaps Toggle gaps: (1) on (2) off
-bindsym $mod+Escape mode "$mode_gaps"
-mode "$mode_gaps" {
-    bindsym 1 mode "default", gaps inner all set 10, gaps outer all set 15
-    bindsym 2 mode "default", gaps inner all set 0, gaps outer all set 0
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-# neovim:filetype=i3
+# vim:filetype=i3
