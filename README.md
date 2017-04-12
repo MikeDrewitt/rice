@@ -13,8 +13,17 @@ these would be
 # Setting Up i3.
 This section will go into lite detail how to use my files to setup i3.
 
-  Running/ reading setup.sh will show you the locations of where the files
-  belong at least in my setup. 
+	Running/ reading setup.sh will show you the locations of where the files
+	belong at least in my setup.
+
+	Keep in mind that my terminal settings are not scripted, I use gnome terminal
+	and as of this writing am unaware of a way to script a backup for it's
+	configuration. If one exists, I'd be happy to hear about it.
+
+	Much of my rice will not work without all (or most at least) of the rice
+	section of the install list installed. Using the correct args with
+	install_prackages.sh sould install the missing packages needed to make the
+	rice work without too much trouble. 
 
 # Other Distros
 This does work on other distros, I've helped others with setting this up on
