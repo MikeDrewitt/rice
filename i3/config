@@ -1,4 +1,4 @@
-#Startup
+Startup
 exec_always --no-startup-id ~/.scripts/set_wallpaper ~/.scripts/currentWallpaper.jpg
 exec --no-startup-id nm-applet
 #exec --no-startup-id ~/.scripts/flux.sh
