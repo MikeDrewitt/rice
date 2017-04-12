@@ -1,0 +1,38 @@
+/*
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+title      Language XML                                        +
+project    nord-atom-syntax                                    +
+repository https://github.com/arcticicestudio/nord-atom-syntax +
+author     Arctic Ice Studio                                   +
+email      development@arcticicestudio.com                     +
+copyright  Copyright (C) 2016                                  +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Language Packages]
+  > language-xml (https://atom.io/packages/language-xml)
+
+[References]
+W3C
+  (https://www.w3.org/TR/xml)
+*/
+.text.xml {
+  .constant.character {
+    &.entity,
+    .punctuation.definition {
+      color: @syntax-color-markup-entity;
+    }
+  }
+
+  .entity.name.tag.namespace {
+    color: @syntax-color-attribute;
+  }
+
+  .string.unquoted.cdata {
+    color: @syntax-color-comment;
+
+    .punctuation.definition {
+      color: @syntax-color-comment;
+      font-weight: bold;
+    }
+  }
+}

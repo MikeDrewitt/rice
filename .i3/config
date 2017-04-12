@@ -1,0 +1,294 @@
+#Startup
+exec_always --no-startup-id ~/.scripts/set_wallpaper ~/.scripts/currentWallpaper.jpg
+exec --no-startup-id nm-applet
+#exec --no-startup-id ~/.scripts/flux.sh
+
+# Workspaces Statup
+exec --no-startup-id "i3-msg 'workspace  home'"
+
+# Laptop Stuff
+exec_always --no-startup-id ~/.config/polybar/laptop-launch.sh
+# exec_always --no-startup-id xrandr --output eDP1 --dpi 145
+exec --no-startup-id xinput --set-prop 13 "Synaptics Two-Finger Scrolling" 1 1
+exec --no-startup-id perl ~/.scripts/xSwipe/xSwipe.pl -m 30
+exec --no-startup-id xmodmap ~/.xmodmaprc
+exec_always --no-startup-id compton -c -f --vsync opengl --config ~/.i3/compton/laptop.conf -b
+
+set $fontSize 8
+set $barFontSize 12
+
+# Desktop Stuff
+#exec_always --no-startup-id xrandr --output DVI-D-0 --auto --right-of HDMI-0
+#exec_always --no-startup-id xrandr --output DP-0 --auto --right-of DVI-D-0
+#exec_always --no-startup-id ~/.config/polybar/desktop-launch.sh
+#exec_always --no-startup-id compton -c -f --config ~/.i3/compton/desktop.conf -b 
+#exec --no-startup-id systemctl enable ckb-daemon && systemctl start ckb-daemon
+#exec --no-startup-id ckb &
+#bindsym $mod+Shift+w exec ~/.scripts/windows.sh
+#set $fontSize 9
+#set $barFontSize 9
+
+bindsym Control+$alt+Right move workspace to output right
+bindsym Control+$alt+Left move workspace to output left
+bindsym Control+$alt+Up move workspace to output up
+bindsym Control+$alt+Down move workspace to output down
+
+set $mod Mod4
+set $alt Mod1
+set $caps lock
+set $fn  XF86WakeUp
+set $gaps_inner 15
+set $gaps_outer 10
+set $border_px 3
+
+set $term        gnome-terminal
+set $browser     google-chrome-unstable
+set $messenger   cutegram
+set $chat        chat
+set $filemanager ranger
+set $theme       arch-dotted
+
+# Assign workspaces
+assign [title="(?i)atom"] " atom"
+assign [title="(?i)steam"] " steam"
+assign [title="(?i)plex"] " plex"
+assign [title="(?i)LibreOffice"] " office"
+
+# Custom key-bindings
+bindsym $mod+c exec $browser; workspace  chrome
+bindsym $mod+m workspace " files"; exec gnome-terminal -e ranger
+bindsym $mod+s workspace " steam"; exec sh ~/.scripts/steam.sh
+bindsym $mod+t exec $term
+bindsym $mod+Shift+a exec atom; workspace " atom"
+bindsym $mod+Shift+m workspace " files"; exec thunar
+bindsym $mod+Shift+p exec gpmdp ;workspace  play 
+bindsym $mod+Shift+s workspace " chat"; exec slack; exec teamspeak3
+bindsym $mod+Shift+t workspace " transmission"; exec transmission-gtk
+bindsym $mod+Control+space exec ~/.scripts/lock.sh
+
+# Screenshots
+set $screenshots ~/Pictures/Screenshots
+
+bindsym Print --release exec escrotum -e 'mv $f $screenshots'
+bindsym $mod+Print --release exec escrotum -s -e 'mv $f $screenshots'
+
+# smart_gaps on
+
+# Window spacing (gap)
+gaps inner $gaps_inner
+gaps outer $gaps_outer
+
+smart_borders no_gaps
+
+# Remove titlebar
+new_window none
+
+# Set border
+for_window [class="^.*"] border pixel $border_px
+new_window pixel $border_px
+new_float pixel $border_px
+
+workspace " atom" gaps inner 5
+workspace " atom" gaps outer 5
+workspace " chrome" gaps inner 5
+workspace " chrome" gaps outer 5
+workspace " spotify" gaps inner 0
+workspace " spotify" gaps outer 0
+workspace " play" gaps inner 5
+workspace " play" gaps outer 5
+workspace " mail" gaps inner 5
+workspace " mail" gaps outer 5
+workspace " chat" gaps inner 10
+workspace " chat" gaps outer 10
+workspace " steam" gaps inner 15
+workspace " steam" gaps outer 15
+workspace " plex" gaps inner 5
+workspace " plex" gaps outer 5
+workspace " gaming" gaps inner 5
+workspace " gaming" gaps outer 5
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below
+font pango:System San Francisco Display Regular $fontSize
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return workspace " term"; exec $term
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start a program launcher
+bindsym $mod+space exec ~/.i3/rofi.sh
+
+# change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+g split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+q layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# focus the parent container
+Bindsym $mod+a focus parent
+
+# focus the child container
+bindsym $mod+y focus child
+
+# switch to workspace
+bindsym $mod+1 workspace " home"
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+bindsym $mod+$alt+Return workspace " term"
+bindsym $mod+$alt+c workspace " chrome"
+bindsym $mod+$alt+a workspace " atom" 
+
+# switch to next/previous workspace
+bindsym XF86Forward workspace next
+bindsym XF86Back    workspace prev
+bindsym $alt+l      workspace next
+bindsym $alt+h      workspace prev
+bindsym $mod+Control+Left   workspace prev
+bindsym $mod+Control+Right  workspace next
+
+# back and forth between workspaces
+bindsym $mod+Tab workspace back_and_forth
+# bindsym $mod+Shift+Tab workspace prev
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace " home"
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+g move container to workspace " gaming"
+
+bindsym $caps+t workspace 2
+
+bindsym $mod+Shift+XF86Forward move container to workspace next
+bindsym $mod+Shift+XF86Back    move container to workspace prev
+bindsym $mod+Shift+Control+Right move container to workspace next
+bindsym $mod+Shift+Control+Left move container to workspace prev
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart && exec set_wallpaper
+# exit i3
+bindsym $mod+Shift+e exec ~/.scripts/i3exit logout
+# lock screen
+bindsym XF86ScreenSaver exec ~/.scirpts/i3exit lock
+
+# audio-bindings
+bindsym XF86AudioRaiseVolume exec "amixer set Master unmute; amixer -q sset Master 1%+"
+bindsym XF86AudioLowerVolume exec "amixer set Master unmute; amixer -q sset Master 1%-"
+bindsym XF86AudioMute exec "amixer -q -D pulse sset Master toggle"
+
+bindsym XF86AudioPlay exec "playerctl play-pause"
+bindsym XF86AudioNext exec "playerctl next"
+bindsym XF86AudioPrev exec "playerctl previous"
+
+#brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# keybaord backlight controls
+bindsym XF86KbdBrightnessUp exec kbdlight up 5
+bindsym XF86KbdBrightnessDown exec kbdlight down 5
+
+# resize window (you can also use the mouse for that)
+set $resize Resize: (j) up, (k) down, (h) left, (l) right, (n) no gaps, (b) gaps
+mode "$resize" {
+    # These bindings trigger as soon as you enter the resize mode
+
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+
+    # Toggle gaps
+    bindsym n gaps inner current set 0; gaps outer all set 0
+    bindsym b gaps inner current set $gaps_inner; gaps outer all set $gaps_outer
+	
+	# back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "$resize"
+
+# red
+set $red1  #e25263
+
+set $transparent #00000000
+set $foreground #d3dae3
+set $background #383c4a
+set $barColor #282A2FB0
+set $activeWindow #FF5A5F
+set $indicator #BFD7EAB
+
+# class                 bg          	border      	text        	indicator
+client.focused          $background 	$activeWindow 	$foreground 	$activeWindow
+client.focused_inactive $transparent 	$transparent  	$foreground 	$indicator
+client.unfocused        $transparent 	$transparent   	$foreground 	$indicator
+client.urgent           $background 	$red1       	$foreground		$indicator
+client.placeholder      $background 	$background 	$foreground		$background
+
+set $mode_system System: (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id ~/.scripts/i3exit lock, mode "default"
+    bindsym e exec --no-startup-id ~/.scripts/i3exit logout, mode "default"
+    bindsym s exec --no-startup-id ~/.scripts/i3exit suspend, mode "default"
+    bindsym h exec --no-startup-id ~/.scripts/i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id ~/.scripts/i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+BackSpace mode "$mode_system"
+
+# vim:filetype=i3

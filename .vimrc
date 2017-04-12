@@ -371,8 +371,8 @@ autocmd FileType cpp,java,php,python
 	"\ list lcs=tab:+.
 autocmd FileType markdown setlocal textwidth=80
 autocmd FileType prg
-	\ setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4 cindent
-	"\ list lcs=tab:+¿
+	\ setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=2 cindent
+	\ list lcs=tab:+.
 
 " Txt
 autocmd FileType text setlocal textwidth=79 wrap

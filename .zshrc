@@ -89,8 +89,9 @@ autoload -Uz compinit
 compinit
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh  
-#source /usr/share/zsh/site-contrib/powerline.zsh
 source /home/michael/.bash_profile
+source /home/michael/.scripts/variable.sh
 
 # Adding z.sh support
 . /usr/lib/z.sh
+eval $(thefuck --alias)

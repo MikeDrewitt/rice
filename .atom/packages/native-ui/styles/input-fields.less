@@ -1,0 +1,39 @@
+.input-block-item atom-text-editor.mini,
+.controls atom-text-editor.mini,
+atom-panel atom-text-editor[mini],
+.settings-view select.form-control,
+.editor-container atom-text-editor.mini {
+  font-size: 1.15rem;
+  box-shadow: none;
+  border-color: @input-border-color;
+  border-radius: @border-radius--base;
+  padding: 0 8px;
+  background: @text-color-selected;
+  transition: box-shadow @transition--default;
+
+  &.is-focused {
+    border-color: @input-border-color-active;
+    color: @text-color-highlight;
+    box-shadow: 0 0 0 3px @input-outline-color-active;
+  }
+}
+
+.tree-view-dialog atom-text-editor[mini] {
+  max-height: 100%;
+}
+
+atom-text-editor[mini] .cursor,
+atom-text-editor[mini]::shadow .cursor {
+  border-width: 1px;
+  height: 18px !important;
+  margin-top: 4px;
+}
+
+.settings-view select.form-control,
+.settings-view select.form-control:hover,
+.settings-view select.form-control:focus {
+  height: 27px;
+  border: 1px solid @button-border-color;
+  border-bottom: 1px solid @button-border-color--bottom;
+  background: #fff;
+}

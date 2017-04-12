@@ -1,0 +1,77 @@
+@import "ui-variables";
+@import "ui-mixins";
+
+.loading-spinner(@size) {
+  width: @size;
+  height: @size;
+  display: block;
+  background-image: url(atom://native-ui/images/spinner-128.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &.inline-block {
+    display: inline-block;
+  }
+}
+
+.loading-spinner-large {
+  .loading-spinner(64px);
+}
+
+.loading-spinner-medium {
+  .loading-spinner(50px);
+}
+
+.loading-spinner-small {
+  .loading-spinner(32px);
+}
+
+.loading-spinner-tiny {
+  .loading-spinner(20px);
+}
+
+@progress-height: @font-size;
+@progress-shine-gradient: -webkit-linear-gradient(top, rgba(255, 255, 255, .15), rgba(0, 0, 0, .15));
+@progress-background-color: @tab-background-color-active;
+
+progress {
+  height: @progress-height;
+  -webkit-appearance: none;
+  border-radius: @progress-height;
+  background-color: @progress-background-color;
+  animation: glow 3s linear 9; // stop animation after 9 runs (30s) to limit CPU usage
+  overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+  background-color: transparent;
+}
+
+progress::-webkit-progress-value {
+  // border-radius: @progress-height;
+  // background-image: @progress-shine-gradient;
+  background-color: @background-color-info;
+  animation: glow 3s ease-in-out 6;
+}
+
+progress[value] {
+  -webkit-animation: none;
+}
+
+@-webkit-keyframes animate-stripes {
+  100% {
+    background-position: 100px 0px;
+  }
+}
+
+@keyframes glow {
+  0% {
+    background-color: @progress-background-color;
+  }
+  50% {
+    background-color: @background-color-error;
+  }
+  100% {
+    background-color: @progress-background-color;
+  }
+}

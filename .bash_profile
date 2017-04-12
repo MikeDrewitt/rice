@@ -14,6 +14,7 @@ alias cls='clear'
 alias cl='clear'
 
 alias mikasa='ssh mikasa'
+alias levi='ssh levi'
 alias timberlake='ssh timberlake'
 alias cheshire='ssh cheshire'
 alias hanji='ssh hanji'
@@ -43,3 +44,4 @@ export GOPATH=~/.go
 
 alias nr='network_restart'
 PATH=~/.eclipse:$PATH
+

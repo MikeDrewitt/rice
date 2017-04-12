@@ -1,0 +1,34 @@
+@import "ui-mixins";
+@import "ui-variables";
+
+.panel {
+  &.bordered {
+    border: 1px solid @base-border-color;
+    border-radius: @component-border-radius;
+  }
+}
+
+.tool-panel {
+  .text(normal);
+  position: relative;
+  background-color: @tool-panel-background-color;
+
+  .description,
+  .options-label {
+    font-size: 85%;
+    padding-bottom: 10px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.atom-panel.bottom {
+  padding: 10px;
+  min-width: 500px;
+}
+
+.inset-panel {
+  .text(normal);
+  position: relative;
+  background-color: @inset-panel-background-color;
+}
