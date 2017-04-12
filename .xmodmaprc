@@ -1,2 +1,5 @@
+! Fixes tilde on mac keyboards
 keycode 94 = grave asciitilde
+
+! Attempt to rebind caps lock to a mod key, not working
 clear lock
