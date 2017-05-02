@@ -25,6 +25,8 @@ if len(sys.argv) < 2:
 
 with open(INSTALL_LIST, 'r') as install_list:
     for install in install_list:
+        if install[0] == '/':
+            pass
         if install[0] == '#':
             flag = install[1:].strip() 
         else:
@@ -32,7 +34,7 @@ with open(INSTALL_LIST, 'r') as install_list:
                 program = install.split()[0]
                 #print(program)
                 if not program in aur_packages and flag in sys.argv:
-                    subprocess.call(['pacaur -S --noconfirm ' + program], shell=True)
+                    subprocess.call(['pacaur -S --noconfirm --noedit ' + program], shell=True)
                     #print(program)
                 elif program in aur_packages:
                     print(program + ' is already installed')

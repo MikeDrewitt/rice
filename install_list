@@ -40,8 +40,8 @@ neofetch-git # replacement for screenfetch
 # laptop
 perl-x11-guitest
 perl-smart-comments
-xf86-input-synaptics-xswipe-git
-bcwc-pcie-dkms # apple webcam
+// xf86-input-synaptics-xswipe-git
+// bcwc-pcie-dkms # apple webcam
 kbdlight # keyboad backlight
 
 # desktop
