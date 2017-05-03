@@ -38,9 +38,9 @@ w3m # terminal web browser, shows images
 neofetch-git # replacement for screenfetch
 
 # laptop
-// perl-x11-guitest
-// perl-smart-comments
-// xf86-input-synaptics-xswipe-git
+perl-x11-guitest
+perl-smart-comments
+xf86-input-synaptics-xswipe-git
 // bcwc-pcie-dkms # apple webcam
 kbdlight # keyboad backlight
 
