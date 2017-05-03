@@ -15,7 +15,7 @@ tree # Good way to go throught the fs
 redshift # Used as a f.lux replacement	
 
 # rice
-i3-gaps-git # The i3 I use
+i3-gaps # The i3 I use
 i3lock-blur # The i3lock flavor that I use
 py3status # The i3status flavor that I use
 i3status # unused
@@ -38,10 +38,10 @@ w3m # terminal web browser, shows images
 neofetch-git # replacement for screenfetch
 
 # laptop
-perl-x11-guitest
-perl-smart-comments
-xf86-input-synaptics-xswipe-git
-bcwc-pcie-dkms # apple webcam
+// perl-x11-guitest
+// perl-smart-comments
+// xf86-input-synaptics-xswipe-git
+// bcwc-pcie-dkms # apple webcam
 kbdlight # keyboad backlight
 
 # desktop

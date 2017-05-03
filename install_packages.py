@@ -25,6 +25,8 @@ if len(sys.argv) < 2:
 
 with open(INSTALL_LIST, 'r') as install_list:
     for install in install_list:
+        if install[0] == '/':
+            pass
         if install[0] == '#':
             flag = install[1:].strip() 
         else:
