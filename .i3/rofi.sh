@@ -11,7 +11,7 @@ rofi -modi "run,drun,ssh" 	\
 	 -bw 0 					\
 	 -hide-scrollbar 		\
 	 -color-enabled 		\
-	 -color-window "#0B3954","#0B3954" \
-	 -color-normal "#0B3954","#BFD7EA","#0B3954","#FF5A5F","#CC303030"
+	 # -color-window "#0B3954","#0B3954" \
+	 # -color-normal "#0B3954","#BFD7EA","#0B3954","#FF5A5F","#CC303030"
 
 #-width 1280 -padding 100 

@@ -1,5 +1,5 @@
 #Startup
-exec_always --no-startup-id ~/.scripts/set_wallpaper ~/.scripts/currentWallpaper.jpg
+exec_always --no-startup-id ~/.scripts/set_wallpaper_only 
 exec --no-startup-id nm-applet
 #exec --no-startup-id ~/.scripts/flux.sh
 
@@ -49,21 +49,21 @@ set $filemanager ranger
 set $theme       arch-dotted
 
 # Assign workspaces
-assign [title="(?i)atom"] " atom"
-assign [title="(?i)steam"] " steam"
-assign [title="(?i)plex"] " plex"
-assign [title="(?i)LibreOffice"] " office"
+assign [title="(?i)atom"] ""
+assign [title="(?i)steam"] ""
+assign [title="(?i)plex"] ""
+assign [title="(?i)LibreOffice"] ""
 
 # Custom key-bindings
-bindsym $mod+c exec $browser; workspace  chrome
-bindsym $mod+m workspace " files"; exec gnome-terminal -e ranger
-bindsym $mod+s workspace " steam"; exec sh ~/.scripts/steam.sh
+bindsym $mod+c exec $browser; workspace 
+bindsym $mod+m workspace ""; exec gnome-terminal -e ranger
+bindsym $mod+s workspace ""; exec sh ~/.scripts/steam.sh
 bindsym $mod+t exec $term
-bindsym $mod+Shift+a exec atom; workspace " atom"
-bindsym $mod+Shift+m workspace " files"; exec thunar
-bindsym $mod+Shift+p exec gpmdp ;workspace  play 
-bindsym $mod+Shift+s workspace " chat"; exec slack; exec teamspeak3
-bindsym $mod+Shift+t workspace " transmission"; exec transmission-gtk
+bindsym $mod+Shift+a exec atom; workspace ""
+bindsym $mod+Shift+m workspace ""; exec thunar
+bindsym $mod+Shift+p exec gpmdp ;workspace   
+bindsym $mod+Shift+s workspace ""; exec slack; exec teamspeak3
+bindsym $mod+Shift+t workspace ""; exec transmission-gtk
 bindsym $mod+Control+space exec ~/.scripts/lock.sh
 
 # Screenshots
@@ -88,24 +88,24 @@ for_window [class="^.*"] border pixel $border_px
 new_window pixel $border_px
 new_float pixel $border_px
 
-workspace " atom" gaps inner 5
-workspace " atom" gaps outer 5
-workspace " chrome" gaps inner 5
-workspace " chrome" gaps outer 5
-workspace " spotify" gaps inner 0
-workspace " spotify" gaps outer 0
-workspace " play" gaps inner 5
-workspace " play" gaps outer 5
-workspace " mail" gaps inner 5
-workspace " mail" gaps outer 5
-workspace " chat" gaps inner 10
-workspace " chat" gaps outer 10
-workspace " steam" gaps inner 15
-workspace " steam" gaps outer 15
-workspace " plex" gaps inner 5
-workspace " plex" gaps outer 5
-workspace " gaming" gaps inner 5
-workspace " gaming" gaps outer 5
+workspace "" gaps inner 5
+workspace "" gaps outer 5
+workspace "" gaps inner 5
+workspace "" gaps outer 5
+workspace "" gaps inner 0
+workspace "" gaps outer 0
+workspace "" gaps inner 5
+workspace "" gaps outer 5
+workspace "" gaps inner 5
+workspace "" gaps outer 5
+workspace "" gaps inner 10
+workspace "" gaps outer 10
+workspace "" gaps inner 15
+workspace "" gaps outer 15
+workspace "" gaps inner 5
+workspace "" gaps outer 5
+workspace "" gaps inner 5
+workspace "" gaps outer 5
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below
@@ -115,7 +115,7 @@ font pango:System San Francisco Display Regular $fontSize
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return workspace " term"; exec $term
+bindsym $mod+Return workspace ""; exec $term
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -129,11 +129,22 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+
 # move focused window
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # split in horizontal orientation
 bindsym $mod+g split h
@@ -153,13 +164,13 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # focus the parent container
-Bindsym $mod+a focus parent
+# Bindsym $mod+a focus parent
 
 # focus the child container
 bindsym $mod+y focus child
 
 # switch to workspace
-bindsym $mod+1 workspace " home"
+bindsym $mod+1 workspace ""
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
@@ -170,24 +181,29 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
-bindsym $mod+$alt+Return workspace " term"
-bindsym $mod+$alt+c workspace " chrome"
-bindsym $mod+$alt+a workspace " atom" 
+bindsym $mod+$alt+Return workspace ""
+bindsym $mod+$alt+c workspace ""
+bindsym $mod+$alt+a workspace "" 
 
 # switch to next/previous workspace
 bindsym XF86Forward workspace next
 bindsym XF86Back    workspace prev
 bindsym $alt+l      workspace next
 bindsym $alt+h      workspace prev
+
 bindsym $mod+Control+Left   workspace prev
 bindsym $mod+Control+Right  workspace next
+
+bindsym $mod+a   workspace prev
+bindsym $mod+d  workspace next
+
 
 # back and forth between workspaces
 bindsym $mod+Tab workspace back_and_forth
 # bindsym $mod+Shift+Tab workspace prev
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace " home"
+bindsym $mod+Shift+1 move container to workspace ""
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
 bindsym $mod+Shift+4 move container to workspace 4
@@ -197,7 +213,7 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
-bindsym $mod+Shift+g move container to workspace " gaming"
+bindsym $mod+Shift+g move container to workspace ""
 
 bindsym $caps+t workspace 2
 
@@ -225,12 +241,12 @@ bindsym XF86AudioNext exec "playerctl next"
 bindsym XF86AudioPrev exec "playerctl previous"
 
 #brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 3 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 3 # decrease screen brightness
 
 # keybaord backlight controls
-bindsym XF86KbdBrightnessUp exec kbdlight up 5
-bindsym XF86KbdBrightnessDown exec kbdlight down 5
+bindsym XF86KbdBrightnessUp exec kbdlight up 3
+bindsym XF86KbdBrightnessDown exec kbdlight down 3
 
 # resize window (you can also use the mouse for that)
 set $resize Resize: (j) up, (k) down, (h) left, (l) right, (n) no gaps, (b) gaps
@@ -261,16 +277,17 @@ bindsym $mod+r mode "$resize"
 
 # red
 set $red1  #e25263
-
 set $transparent #00000000
-set $foreground #d3dae3
-set $background #383c4a
-set $barColor #282A2FB0
-set $activeWindow #FF5A5F
-set $indicator #BFD7EAB
+
+set_from_resource $background i3wm.color0
+set_from_resource $foreground i3wm.color1
+set_from_resource $active_window i3wm.color2
+set_from_resource $indicator i3wm.color3
+set_from_resource $light_text i3wm.color7
+
 
 # class                 bg          	border      	text        	indicator
-client.focused          $background 	$activeWindow 	$foreground 	$activeWindow
+client.focused          $background 	$active_window 	$light_text 	$active_window
 client.focused_inactive $transparent 	$transparent  	$foreground 	$indicator
 client.unfocused        $transparent 	$transparent   	$foreground 	$indicator
 client.urgent           $background 	$red1       	$foreground		$indicator

@@ -20,19 +20,19 @@ print_info() {
     info "Packages" packages
     info "Shell" shell
     info "Resolution" resolution
-    info "DE" de
     info "WM" wm
     info "WM Theme" wm_theme
-    info "Theme" theme
-    info "Icons" icons
     info "Terminal" term
     info "Terminal Font" term_font
     info "CPU" cpu
     info "GPU" gpu
     info "Memory" memory
+	info "CPU Usage" cpu_usage
+    info "Disk" disk
 
-    # info "CPU Usage" cpu_usage
-    # info "Disk" disk
+    # info "Theme" theme
+    # info "Icons" icons
+    # info "DE" de
     # info "Battery" battery
     # info "Font" font
     # info "Song" song
@@ -43,6 +43,7 @@ print_info() {
 
     info line_break
     info cols
+	info cols
     info line_break
 }
 
@@ -492,7 +493,7 @@ image_source="wallpaper"
 #
 # Default: '~/.cache/thumbnails/neofetch'
 # Values:  'dir'
-thumbnail_dir="${XDG_CACHE_HOME:-${HOME}/.cache}/thumbnails/neofetch"
+# thumbnail_dir="${XDG_CACHE_HOME:-${HOME}/.cache}/thumbnails/neofetch"
 
 # w3m-img path
 # Only works with the w3m backend.

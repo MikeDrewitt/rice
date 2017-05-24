@@ -14,6 +14,7 @@ alias cls='clear'
 alias cl='clear'
 
 alias mikasa='ssh mikasa'
+alias sasha='ssh sasha'
 alias levi='ssh levi'
 alias timberlake='ssh timberlake'
 alias cheshire='ssh cheshire'
@@ -39,9 +40,10 @@ alias chrome='google-chrome-unstable'
 alias school='cd ~/Sync/school && vim +NERDTree'
 alias ops='cd ~/Sync/school/421*/vagrant && vagrant ssh'
 
+alias neofetch='neofetch --clean && neofetch --w3m ~/.scripts/current_wallpaper.jpg' 
+
 export PATH=$PATH:/home/michael/.scripts/
 export GOPATH=~/.go
 
 alias nr='network_restart'
-PATH=~/.eclipse:$PATH
 

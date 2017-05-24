@@ -10,7 +10,10 @@ def main():
     with open(GPMDP_API, 'r') as f:
         data = json.load(f)
         if data['playing']:
-            print('{title} by {artist}'.format(title=data['song']['title'], artist=data['song']['artist']));
+            try:
+                print('{title} by {artist}'.format(title=data['song']['title'], artist=data['song']['artist']));
+            except:
+                print('playing song with unicode in the title')
         else:
             print(' ')
 

@@ -1,32 +1,66 @@
-[bar/center]
-monitor = DVI-D-0
+[colors]
+background = ${xrdb:color0}
+foreground = ${xrdb:color6}
+
+i3_background = ${xrdb:color3}
+i3_foreground = ${xrdb:color7}
+i3_urgent_background = ${xrdb:color5}
+i3_unfocused_foreground = ${xrdb:color2}
+
+status_good = ${xrdb:color7}
+status_sub = ${xrdb:color6}
+status_bad = ${xrdb:color5}
+
+linecolor = #FFFFFF
+transparent = #00FFFFFF
+
+tray_background = #60e7ecdb
+
+[const]
 width = 100%
 height = 25
-clickareas = 35
+clickarea = 35
 
-background = #AA3f3f3f
-foreground = #D3DAE3
-linecolor = #ffffff
-
-border-color = #00FFFFFF
-border-left = 0
+border-left-size = 0
 border-right = 0
 border-top = 0
 
-module-margin-left = 2
-module-margin-right = 2
+module-margin-left = 1
+module-margin-right = 1
 
-spacing = 3
+spacing = 1
 lineheight = 4 
 
-font-0 = FontAwesome:size=10;
-font-1 = SanFranciscoDisplay:size=10:weight=bold;0;
+font-0 = FontAwesome:size=12;
+font-1 = SanFranciscoDisplay:size=14:weight=regular;0;
+
+[bar/center]
+monitor = DVI-D-0
+width = ${const.width}
+height = ${const.height}
+clickareas = ${const.clickareas}
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+linecolor = ${colors.linecolor}
+
+border-color = ${colors.transparent}
+border-left-size = ${const.boarder-left}
+border-right = ${const.boarder-right}
+border-top = ${const.boarder-top}
+
+module-margin-left = ${const.module-margin-left}
+module-margin-right = ${const.module-margin-right}
+
+spacing = ${const.spacing}
+lineheight = ${const.lineheight}
+
+font-0 = ${const.font-0}
+font-1 = ${const.font-1}
 
 modules-left = i3 play_music 
 modules-center = 
 modules-right = volume clock
-
-tray-background = #60e7ecdb
 
 [bar/left]
 monitor = HDMI-0
@@ -34,30 +68,30 @@ modules-left = clock volume
 modules-center = 
 modules-right = i3
 
-width = ${bar/center.width}
-height = ${bar/center.height}
-clickareas = ${bar/center.clickareas}
+width = ${const.width}
+height = ${const.height}
+clickareas = ${const.clickareas}
 
-background = ${bar/center.background}
-foreground = ${bar/center.foreground}
-linecolor = ${bar/center.linecolor}
+background = ${colors.background}
+foreground = ${colors.foreground}
+linecolor = ${colors.linecolor}
 
-border-color = ${bar/center.border-color}
-border-left = ${bar/center.border-left}
-border-right = ${bar/center.border-right}
-border-top = ${bar/center.border-top}
+border-color = ${colors.transparent}
+border-left-size = ${const.boarder-left}
+border-right = ${const.boarder-right}
+border-top = ${const.boarder-top}
 
-module-margin-left = ${bar/center.module-margin-left}
-module-margin-right = ${bar/center.module-margin-right}
+module-margin-left = ${const.module-margin-left}
+module-margin-right = ${const.module-margin-right}
 
-spacing = ${bar/center.spacing}
-lineheight = ${bar/center.lineheight}
+spacing = ${const.spacing}
+lineheight = ${const.lineheight}
 
-font-0 = ${bar/center.font-0}
-font-1 = ${bar/center.font-1}
+font-0 = ${const.font-0}
+font-1 = ${const.font-1}
 
 ;tray-position = right
-tray-background = ${bar/center.tray-background}
+tray-background = ${colors/tray_background}
 
 [bar/right]
 monitor = DP-2
@@ -65,63 +99,62 @@ modules-left = i3
 modules-center = 
 modules-right = volume clock
 
+width = ${const.width}
+height = ${const.height}
+clickareas = ${const.clickareas}
 
-width = ${bar/center.width}
-height = ${bar/center.height}
-clickareas = ${bar/center.clickareas}
+background = ${colors.background}
+foreground = ${colors.foreground}
+linecolor = ${colors.linecolor}
 
-background = ${bar/center.background}
-foreground = ${bar/center.foreground}
-linecolor = ${bar/center.linecolor}
+border-color = ${colors.transparent}
+border-left-size = ${const.boarder-left}
+border-right = ${const.boarder-right}
+border-top = ${const.boarder-top}
 
-border-color = ${bar/center.border-color}
-border-left = ${bar/center.border-left}
-border-right = ${bar/center.border-right}
-border-top = ${bar/center.border-top}
+module-margin-left = ${const.module-margin-left}
+module-margin-right = ${const.module-margin-right}
 
-module-margin-left = ${bar/center.module-margin-left}
-module-margin-right = ${bar/center.module-margin-right}
+spacing = ${const.spacing}
+lineheight = ${const.lineheight}
 
-spacing = ${bar/center.spacing}
-lineheight = ${bar/center.lineheight}
-
-font-0 = ${bar/center.font-0}
-font-1 = ${bar/center.font-1}
+font-0 = ${const.font-0}
+font-1 = ${const.font-1}
 
 ;tray-position = right
-tray-background = ${bar/center.tray-background}
+tray-background = ${colors/tray_background}
 
 [bar/laptop]
 monitor = eDP1
-modules-left = powermenu play_music
-modules-center = i3
+modules-left = i3 play_music
+modules-center = 
 modules-right = volume wireless-network battery clock
 
-width = ${bar/center.width}
-;height = ${bar/center.height}
-height = 30 
-clickareas = ${bar/center.clickareas}
+width = ${const.width}
+height = 35 
 
-background = ${bar/center.background}
-foreground = ${bar/center.foreground}
-linecolor = ${bar/center.linecolor}
+clickareas = ${const.clickareas}
 
-border-color = ${bar/center.border-color}
-border-left = ${bar/center.border-left}
-border-right = ${bar/center.border-right}
-border-top = ${bar/center.border-top}
+background = ${colors.background}
+foreground = ${colors.foreground}
+linecolor = ${colors.linecolor}
 
-module-margin-left = ${bar/center.module-margin-left}
-module-margin-right = ${bar/center.module-margin-right}
+border-color = ${colors.transparent}
+border-left-size = ${const.border-left-size} 
+border-right-size = ${const.border-right}
+border-top-size = ${const.border-top}
 
-spacing = ${bar/center.spacing}
-lineheight = ${bar/center.lineheight}
+module-margin-left = ${const.module-margin-left}
+module-margin-right = ${const.module-margin-right}
 
-font-0 = ${bar/center.font-0}
-font-1 = ${bar/center.font-1}
+spacing = ${const.spacing}
+lineheight = ${const.lineheight}
+
+font-0 = ${const.font-0}
+font-1 = ${const.font-1}
 
 ;tray-position = right
-tray-background = ${bar/center.tray-background}
+tray-background = ${colors/tray_background}
 tray-detached = false
 
 [module/battery]
@@ -131,18 +164,13 @@ adapter = ADP1
 full-at = 99
 
 format-charging =<animation-charging>  %{F#e9a15f}%{F-} <label-charging>
-format-charging-underline = 
-
 format-discharging = <ramp-capacity> <label-discharging>
-#format-discharging-underline = #0B3954 
-
 format-full = <ramp-capacity> <label-full>
-format-full-underline = 
 
 ramp-capacity-0 = 
-ramp-capacity-0-foreground = #C81D25
+ramp-capacity-0-foreground = ${colors.status_bad}
 ramp-capacity-1 = 
-ramp-capacity-1-foreground = #FF5A5F
+ramp-capacity-1-foreground = ${colors.status_sub}
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
@@ -150,11 +178,11 @@ ramp-capacity-4 = 
 bar-capacity-width = 10
 bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
 bar-capacity-fill = 
-bar-capacity-fill-foreground = #ddffffff
+bar-capacity-fill-foreground = ${colors.good}
 bar-capacity-fill-font = 3
 bar-capacity-empty = 
 bar-capacity-empty-font = 3
-bar-capacity-empty-foreground = #44ffffff
+bar-capacity-empty-foreground = ${colors.bad}
 
 animation-charging-0 = 
 animation-charging-1 = 
@@ -168,67 +196,66 @@ type = internal/i3
 
 pin-workspaces = true
 strip-wsnumbers = true
-wsname-maxlen = 3
+
 index-sort = true
 
 label-focused = %name%
-label-focused-foreground = #ffffff
-label-focused-background = #3f3f3f
-label-focused-underline = #FF5A5F
-label-focused-padding = 6
+label-focused-foreground = ${colors.i3_foreground}
+label-focused-background = ${colors.i3_background}
+label-focused-padding = 10
+label-focused-maxlen = 2 
+label-focused-ellipsis = False
 
 label-unfocused = %name%
+label-unfocused-foreground = ${colors.i3_unfocused_foreground}
 label-unfocused-padding = 4
+label-unfocused-maxlen = 2
+label-unfocused-ellipsis = false
 
 label-visible = %name%
-label-visible-underline = #555555
 label-visible-padding = 4
+label-visible-maxlen = 2 
 
 label-urgent = %name%
-label-urgent-foreground = #ffffff
-label-urgent-background = #e7aa2d
-#label-urgent-underline = #3f3f3f
-label-urgent-padding = 6
+label-urgent-foreground = ${colors.i3_foreground}
+label-urgent-background = ${colors.i3_urgent_background}
+label-urgent-padding = 4
+label-urgent-maxlen = 2
 
 [module/wireless-network]
 type = internal/network
 interface = wlp3s0
 interval = 3.0
 ping-interval = 1
-udspeed-minwidth = 3
 
 format-packetloss = <animation-packetloss> <label-connected>
-
 format-connected = <ramp-signal> <label-connected>
-; format-connected-underline = #FFFFFF
 
-label-connected = %essid% | %{F#CCC}%local_ip%%{F-}
+label-connected = %essid% | %local_ip%
 label-disconnected = not connected
 label-disconnected-foreground = #66
 
 ramp-signal-0 = 
-ramp-signal-0-foreground = #C81D25
+ramp-signal-0-foreground = ${colors.status_bad}
 ramp-signal-1 = 
-ramp-signal-1-foreground = #FF5A5F
+ramp-signal-1-foreground = ${colors.status_sub}
 ramp-signal-2 = 
-ramp-signal-2-foreground = #BFD7EA
+ramp-signal-2-foreground = ${colors.status_sub}
 ramp-signal-3 = 
-ramp-signal-3-foreground = #5AB2FF
+ramp-signal-3-foreground = ${colors.status_good}
 ramp-signal-4 = 
-ramp-signal-4-foreground = #5AFFA8
-
+ramp-signal-4-foreground = ${colors.status_good}
 
 animation-packetloss-0 = 
-animation-packetloss-0-foreground = #FF5A5F
+animation-packetloss-0-foreground = ${colors.status_bad}
 animation-packetloss-1 = 
-animation-packetloss-1-foreground = #C81D25
+animation-packetloss-1-foreground = ${colors.status_sub}
 animation-packetloss-framerate = 500
 
 [module/volume]
 type = internal/volume
 
 format-volume = <ramp-volume> <label-volume>
-#format-volume-underline = #FFFFFF
 
 label-muted = %{F#dd7e66}%{F-} %{F#CCC}muted%{F-}
 
@@ -239,52 +266,20 @@ ramp-volume-3 = 
 
 [module/play_music]
 type = custom/script
-
 exec = ~/.scripts/play_music.py
-maxlen = 20
-ellipsis = true
 
-[module/powermenu]
-type = custom/menu
-
-format-padding = 3
-
-label-open = 
-label-close = 
-
-menu-0-0 =   Log Out
-menu-0-0-exec = ~/.scripts/i3exit logout
-menu-0-1 =  Lock
-menu-0-1-exec = ~/.scripts/i3exit lock
-menu-0-2 =   Sleep
-menu-0-2-exec = ~/.scripts/i3exit suspend
-menu-0-3 =  Reboot
-menu-0-3-exec = menu-open-1
-menu-0-4 = %{B#8C2F39}  Power off  %{B-}
-menu-0-4-foreground = #FFF
-menu-0-4-exec = menu-open-2
-
-menu-1-0 =  Reboot
-menu-1-0-foreground = #fba922
-menu-1-0-exec = ~/.scripts/i3exit reboot, mode "defualt"
-menu-1-1 =  Cancel
-menu-1-1-foreground = #fba922
-menu-1-1-exec = menu-open-0
-
-menu-2-0 = %{B#8C2F39}   Power off  %{B-}
-menu-2-0-foreground = #FFF
-menu-2-0-exec = ~/.scripts/i3exit shutdown, mode "defualt"
-menu-2-1 =  Cancel
-menu-2-1-exec = menu-open-0
+label-foreground = ${colors.i3_foreground}
+label-maxlen = 50
+label-ellipsis = true
+label-underline = #FFFFFF
 
 [module/clock]
 type = internal/date
 interval = 1
 date = %{F-}%{B-}     %m-%d-%Y   |      %H:%M:%S   %{F-}%{B-}
 
-format-background = ${bar/center.background}
-format-foreground = #BFD7EA
-#format-underline = #FF5A5F
-format-padding = 5
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+format-padding = 3
 
 # vim:filetype=dosini
