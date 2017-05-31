@@ -4,7 +4,9 @@ My i3 setup.
 # Installing 
 Checkout the install list to see what is needed to be installed for all of this
 to work correctly. If you're running Arch Linux, you should be able to run
-install_packages.sh (with it's required arguments) to install all the needed dependancies.
+~~~~install_packages.sh rice~~~~ to install all the needed dependancies for the
+look of the rice. This works by parsing the install\_list, so if you wanted to
+you could pick and choose what to install by hand from there. 
 
 # Some Notes
 Some of my paths in .scripts are hardcoded to my home path, the best way to find
