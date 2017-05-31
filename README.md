@@ -1,5 +1,5 @@
 # My Rice
-My i3 setup.
+My i3 setup, uses polybar.
 
 # Installing 
 Checkout the install list to see what is needed to be installed for all of this

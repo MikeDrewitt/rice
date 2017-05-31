@@ -16,31 +16,29 @@ redshift # Used as a f.lux replacement
 
 # rice
 i3-gaps # The i3 I use
+polybar-git # my bar of choice
 i3lock-blur # The i3lock flavor that I use
-py3status # The i3status flavor that I use
-i3status # unused
 rofi-git # My solution for my ugle dmenu
 dmenu # used to launch applications
 compton-git	# transparency, drop shaddows, transitions
-feh	# wallpapers > required for set wallpaper script
 scrot # used for the lockscreen
+feh	# wallpapers > required for set wallpaper script
 ttf-font-awesome # bar fonts and icons
 vundle-git # vim plugin manager
 powerline-fonts-git # proper powerline fonts for the system
 playerctl # used for media keys
 dunst-git # a simple notifyer for gtk notifications
-polybar-git # A alternative top bar
+neofetch-git # replacement for screenfetch
+w3m # terminal web browser, shows images
 z-git # z cd
 oh-my-zsh-git # oh my z shell
 zsh-completions
 zsh-syntax-highlighting # syntax highlighting 
-w3m # terminal web browser, shows images
-neofetch-git # replacement for screenfetch
 
 # laptop
-perl-x11-guitest
-perl-smart-comments
-xf86-input-synaptics-xswipe-git
+perl-x11-guitest # used for multitouch gestures
+perl-smart-comments # used for multitouch gestures
+xf86-input-synaptics-xswipe-git # multitouch gestures
 // bcwc-pcie-dkms # apple webcam
 kbdlight # keyboad backlight
 
