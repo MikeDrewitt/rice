@@ -1,8 +1,0 @@
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-/** @babel */
-
-exports['default'] = 'atom://incompatible-packages';
-module.exports = exports['default'];
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi90bXAveWFvdXJ0LXRtcC1taWNoYWVsL2F1ci1hdG9tLWVkaXRvci1naXQvc3JjL2F0b20vb3V0L2FwcC9ub2RlX21vZHVsZXMvaW5jb21wYXRpYmxlLXBhY2thZ2VzL2xpYi92aWV3LXVyaS5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7OztxQkFFZSw4QkFBOEIiLCJmaWxlIjoiL3RtcC95YW91cnQtdG1wLW1pY2hhZWwvYXVyLWF0b20tZWRpdG9yLWdpdC9zcmMvYXRvbS9vdXQvYXBwL25vZGVfbW9kdWxlcy9pbmNvbXBhdGlibGUtcGFja2FnZXMvbGliL3ZpZXctdXJpLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLyoqIEBiYWJlbCAqL1xuXG5leHBvcnQgZGVmYXVsdCAnYXRvbTovL2luY29tcGF0aWJsZS1wYWNrYWdlcydcbiJdfQ==
