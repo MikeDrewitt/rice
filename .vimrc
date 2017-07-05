@@ -53,12 +53,19 @@ call vundle#begin()
 	Plugin 'vim-airline/vim-airline-themes'			" Themes for the pretty status bar
 	Plugin 'edkolev/promptline.vim'					" Prompt generator for bash
 
-	Plugin 'Valloric/YouCompleteMe'					" Auto variable completion
+	" Languages
+	Plugin 'pangloss/vim-javascript'
+	Plugin 'mxw/vim-jsx'
+
+	" Plugin 'Valloric/YouCompleteMe'					" Auto variable completion
 	Plugin 'jiangmiao/auto-pairs'					" Closes brackets, parens, etc
 
 	Plugin 'scrooloose/nerdtree'					" If you have to ask, you're not ready
 
 	Plugin 'vim-scripts/AfterColors.vim'			" Adds aftercolor support
+
+	" Colosrscheme coordinator
+	Plugin 'dylanaraps/wal'
 
 	" Colorschemes
 	Plugin 'morhetz/gruvbox'						" Greenish
@@ -68,13 +75,24 @@ call vundle#begin()
 	Plugin 'tyrannicaltoucan/vim-quantum'			" Darker grey and green
 	Plugin 'arcticicestudio/nord-vim'				" Light grey and blue
 	Plugin 'antlypls/vim-colors-codeschool'			" Subdued grey and ugly green, and nice colors
+	" Airline Themes
+	Plugin 'dikiaap/minimalist'
+
+	" Syntax Coloring for Langs		
+	Plugin 'PotatoesMaster/i3-vim-syntax'			" i3 coloring
 
 	" Plugin 'simeji/winresizer'				" resizer for vim windows
 
 " Put your non-Plugin stuff after this line
 call vundle#end()
 
+
+" NERDTree Stuffs
+
 autocmd VimEnter * NERDTree
+let g:NERDTreeWinPos = "left"
+
+" colorscheme wal
 
 if has("win32")
 	set runtimepath+=~/.vim
@@ -152,7 +170,7 @@ set background=dark
 if &term == "xterm"
 	let g:hybrid_use_Xresources = 1
 	set background=dark
-	colorscheme quantum  
+	colorscheme quantum
 else
 	" Theme setting.
 	" Two principal themes for dark and light background
@@ -161,7 +179,7 @@ else
 	let g:hybrid_use_Xresources = 1
 	set background=dark
 	set termguicolors
-	colorscheme breezy 
+	colorscheme quantum
 	let g:quantum_black=1
 
 	"hi Normal ctermbg=0
@@ -197,6 +215,9 @@ endif
 " Fixes linux console keys
 " "od -a" and get the code
 " "^[" is <ESC> at vim
+
+imap jk <ESC> 
+
 map <ESC>Ob <C-Down>
 map <ESC>Oc <C-Right>
 map <ESC>Od <C-Left>
@@ -327,10 +348,10 @@ if has("gui_win32") || &term == "gnome-terminal"
 	let g:airline_left_sep = ''
 	let g:airline_right_sep = ''
 	let g:airline_right_sep = ''
-	let g:airline_theme = 'breezy'
+	let g:airline_theme = 'minimalist'
 else
 	let g:airline_powerline_fonts = 1
-	let g:airline_theme = 'breezy'
+	let g:airline_theme = 'minimalist'
 endif
 
 " Promptline
@@ -368,7 +389,7 @@ autocmd FileType c
 	"\ list lcs=tab:+¿
 autocmd FileType cpp,java,php,python
 	\ setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
-	"\ list lcs=tab:+.
+	\ list lcs=tab:+.
 autocmd FileType markdown setlocal textwidth=80
 autocmd FileType prg
 	\ setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=2 cindent
