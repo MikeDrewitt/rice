@@ -6,15 +6,25 @@
 import sys
 import os 
 
-CURRENT_WALLPAPER = ' ~/.scripts/current_wallpaper.jpg'
+CURRENT_WALLPAPER = ' ~/.scripts/current.jpg'
 
 try:
+    os.system('feh --bg-scale ' + sys.argv[1])
     os.system('wal -i ' + sys.argv[1])
+    
     os.system('cp '+ sys.argv[1] + CURRENT_WALLPAPER)
-    os.system('i3-msg restart')
-    os.system('set_wallpaper_only')
 
-    # Found online to set the proper dunst coloring
-    os.system('wal-set')
+    os.system('~/.scripts/wal-set')
+    os.system('i3-msg restart')
+
 except:
-    print('This script requires a path to an image')
+
+    print('Using current wallapaper....')
+
+    os.system('feh --bg-scale ' + CURRENT_WALLPAPER)
+    os.system('wal -i ' + CURRENT_WALLPAPER)
+    
+    os.system('~/.scripts/wal-set')
+    os.system('i3-msg restart')
+    
+

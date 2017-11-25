@@ -1,14 +1,12 @@
 #Startup
 exec --no-startup-id nm-applet
 
-exec_always --no-startup-id ~/.scripts/set_wallpaper_only 
-exec --no-startup-id wal -i ~/.scripts/current_wallpaper.jpg
-exec --no-startup-id ~/.scripts/wal-set
+exec --no-startup-id ~/.scripts/set_wallpaper
 
-#exec --no-startup-id ~/.scripts/flux.sh
+# exec --no-startup-id ~/.scripts/flux.sh
 
 # Workspaces Statup
-exec --no-startup-id "i3-msg 'workspace  home'"
+exec --no-startup-id "i3-msg 'workspace '"
 
 # Laptop Stuff
 # exec_always --no-startup-id ~/.config/polybar/laptop-launch.sh
@@ -25,7 +23,7 @@ set $barFontSize 12
 exec_always --no-startup-id xrandr --output DP-0 --mode 3440x1440 --rate 120
 exec_always --no-startup-id ~/.config/polybar/desktop-launch.sh
 exec --no-startup-id xset dpms force on
-exec --no-startup-id compton -c -f --config ~/.i3/compton/desktop.conf -b 
+# exec --no-startup-id compton -c -f --config ~/.i3/compton/desktop.conf -b 
 exec --no-startup-id systemctl enable ckb-daemon && systemctl start ckb-daemon
 exec --no-startup-id ckb &
 set $fontSize 9
