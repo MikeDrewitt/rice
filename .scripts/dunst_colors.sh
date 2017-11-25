@@ -21,15 +21,6 @@ reload_dunst() {
 			&
 }
 
-set_bar() {
-    pkill bar
-    bar "$color15" "$color0" 2>/dev/null &
-}
-
-set_scss() {
-    sassc --style expanded "${HOME}/projects/startpage/scss/style.scss" > "${HOME}/projects/startpage/style.css"
-}
-
 main() {
     reload_dunst &
 }

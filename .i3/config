@@ -23,7 +23,7 @@ set $barFontSize 12
 exec_always --no-startup-id xrandr --output DP-0 --mode 3440x1440 --rate 120
 exec_always --no-startup-id ~/.config/polybar/desktop-launch.sh
 exec --no-startup-id xset dpms force on
-# exec --no-startup-id compton -c -f --config ~/.i3/compton/desktop.conf -b 
+exec --no-startup-id compton -c -f --config ~/.i3/compton/desktop.conf -b 
 exec --no-startup-id systemctl enable ckb-daemon && systemctl start ckb-daemon
 exec --no-startup-id ckb &
 set $fontSize 9

@@ -14,8 +14,8 @@ try:
     
     os.system('cp '+ sys.argv[1] + CURRENT_WALLPAPER)
 
-    os.system('~/.scripts/wal-set')
     os.system('i3-msg restart')
+    os.system('~/.scripts/dunst_colors.sh')
 
 except:
 
@@ -24,7 +24,7 @@ except:
     os.system('feh --bg-scale ' + CURRENT_WALLPAPER)
     os.system('wal -i ' + CURRENT_WALLPAPER)
     
-    os.system('~/.scripts/wal-set')
     os.system('i3-msg restart')
+    os.system('~/.scripts/dunst_colors.sh')
     
 
