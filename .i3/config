@@ -1,32 +1,37 @@
 #Startup
-exec_always --no-startup-id ~/.scripts/set_wallpaper_only 
 exec --no-startup-id nm-applet
+
+exec_always --no-startup-id ~/.scripts/set_wallpaper_only 
+exec --no-startup-id wal -i ~/.scripts/current_wallpaper.jpg
+exec --no-startup-id ~/.scripts/wal-set
+
 #exec --no-startup-id ~/.scripts/flux.sh
 
 # Workspaces Statup
 exec --no-startup-id "i3-msg 'workspace  home'"
 
 # Laptop Stuff
-exec_always --no-startup-id ~/.config/polybar/laptop-launch.sh
+# exec_always --no-startup-id ~/.config/polybar/laptop-launch.sh
 # exec_always --no-startup-id xrandr --output eDP1 --dpi 145
-exec --no-startup-id xinput --set-prop 13 "Synaptics Two-Finger Scrolling" 1 1
-exec --no-startup-id perl ~/.scripts/xSwipe/xSwipe.pl -m 30
-exec --no-startup-id xmodmap ~/.xmodmaprc
-exec_always --no-startup-id compton -c -f --vsync opengl --config ~/.i3/compton/laptop.conf -b
+# exec --no-startup-id xinput --set-prop 13 "Synaptics Two-Finger Scrolling" 1 1
+# exec --no-startup-id perl ~/.scripts/xSwipe/xSwipe.pl -m 30
+# exec --no-startup-id xmodmap ~/.xmodmaprc
+# exec_always --no-startup-id compton -c -f --vsync opengl --config ~/.i3/compton/laptop.conf -b
 
 set $fontSize 8
 set $barFontSize 12
 
 # Desktop Stuff
-#exec_always --no-startup-id xrandr --output DVI-D-0 --auto --right-of HDMI-0
-#exec_always --no-startup-id xrandr --output DP-0 --auto --right-of DVI-D-0
-#exec_always --no-startup-id ~/.config/polybar/desktop-launch.sh
-#exec_always --no-startup-id compton -c -f --config ~/.i3/compton/desktop.conf -b 
-#exec --no-startup-id systemctl enable ckb-daemon && systemctl start ckb-daemon
-#exec --no-startup-id ckb &
-#bindsym $mod+Shift+w exec ~/.scripts/windows.sh
-#set $fontSize 9
-#set $barFontSize 9
+exec_always --no-startup-id xrandr --output DP-0 --mode 3440x1440 --rate 120
+exec_always --no-startup-id ~/.config/polybar/desktop-launch.sh
+exec --no-startup-id xset dpms force on
+exec --no-startup-id compton -c -f --config ~/.i3/compton/desktop.conf -b 
+exec --no-startup-id systemctl enable ckb-daemon && systemctl start ckb-daemon
+exec --no-startup-id ckb &
+set $fontSize 9
+set $barFontSize 9
+
+# bindsym $mod+Shift+w exec ~/.scripts/windows.sh
 
 bindsym Control+$alt+Right move workspace to output right
 bindsym Control+$alt+Left move workspace to output left
@@ -37,16 +42,17 @@ set $mod Mod4
 set $alt Mod1
 set $caps lock
 set $fn  XF86WakeUp
-set $gaps_inner 15
-set $gaps_outer 10
-set $border_px 3
+set $gaps_inner 10
+set $gaps_outer 5
+set $border_px 2
 
 set $term        gnome-terminal
 set $browser     google-chrome-unstable
-set $messenger   cutegram
-set $chat        chat
+set $messenger   slack
+set $chat        discord
 set $filemanager ranger
 set $theme       arch-dotted
+set $music       gpmdp
 
 # Assign workspaces
 assign [title="(?i)atom"] ""
@@ -55,15 +61,16 @@ assign [title="(?i)plex"] ""
 assign [title="(?i)LibreOffice"] ""
 
 # Custom key-bindings
+bindsym $mod+t exec $term
 bindsym $mod+c exec $browser; workspace 
 bindsym $mod+m workspace ""; exec gnome-terminal -e ranger
 bindsym $mod+s workspace ""; exec sh ~/.scripts/steam.sh
-bindsym $mod+t exec $term
 bindsym $mod+Shift+a exec atom; workspace ""
 bindsym $mod+Shift+m workspace ""; exec thunar
-bindsym $mod+Shift+p exec gpmdp ;workspace   
-bindsym $mod+Shift+s workspace ""; exec slack; exec teamspeak3
+bindsym $mod+Shift+p workspace  ; exec $music 
+bindsym $mod+Shift+s workspace ""; exec $messenger; exec $chat
 bindsym $mod+Shift+t workspace ""; exec transmission-gtk
+
 bindsym $mod+Control+space exec ~/.scripts/lock.sh
 
 # Screenshots
