@@ -163,36 +163,37 @@ set ruler							" show cursor line number
 set shm=atI							" cut large messages
 
 " Colours
-set t_Co=256
-
-set background=dark
+" set t_Co=256
+" set background=dark
 
 if &term == "xterm"
 	let g:hybrid_use_Xresources = 1
 	set background=dark
-	colorscheme quantum
+	colorscheme gruvbox
 else
 	" Theme setting.
-	" Two principal themes for dark and light background
-	" Function ToggleColours
-	" See comments in theme
 	let g:hybrid_use_Xresources = 1
-	set background=dark
-	set termguicolors
-	colorscheme quantum
+	colorscheme gruvbox
 	let g:quantum_black=1
-
-	"hi Normal ctermbg=0
 endif
 
 " gVim
+
+set guifont=Droid\ Sans\ Mono\ for\ Powerline:15
+let g:Powerline_symbols = 'fancy'
+set encoding=utf-8
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+set termencoding=utf-8
+
 if has('gui_running')
 	if has("win32")
-		set guifont=Lucida_Console:h8
+		set guifont=Droid\ Sans\ Mono\ for\ Powerline:15
 		set lines=40							" Nº lines
 		set columns=90							" Nº columns
 	else
-		set guifont=Inconsolata\ for\ Powerline\ 10
+		set guifont=Droid\ Sans\ Mono\ for\ Powerline:15
 	endif
 	set guioptions-=m							" remove menu
 	set guioptions-=T							" remove toolbar
@@ -348,10 +349,10 @@ if has("gui_win32") || &term == "gnome-terminal"
 	let g:airline_left_sep = ''
 	let g:airline_right_sep = ''
 	let g:airline_right_sep = ''
-	let g:airline_theme = 'minimalist'
+	let g:airline_theme = 'gruvbox'
 else
 	let g:airline_powerline_fonts = 1
-	let g:airline_theme = 'minimalist'
+	let g:airline_theme = 'gruvbox'
 endif
 
 " Promptline
@@ -414,60 +415,5 @@ autocmd BufNewFile,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn
 
 " Set filetype for prg
 autocmd BufNewFile,BufRead *.prg,*.dev,*.act,*.cas set ft=prg
-
-"}}}
-" Functions {{{
-" -----------------------------------------------------------------------------
-
-" Toggle Colours
-function! ToggleColours()
-	if &background  == 'dark'
-		set background=light
-		let g:solarized_bold=0
-		colorscheme solarized
-		AirlineTheme base16
-	else
-		set background=dark
-		let g:hybrid_use_Xresources = 1
-		colorscheme hybrid_e7
-		AirlineTheme air_e7
-	endif
-
-	" Reconfigure term colors
-	if !has('gui_running')
-		if &background == 'light'
-			if filereadable($HOME."/.config/termcolours/light.sh")
-				execute "silent !/bin/sh ".$HOME."/.config/termcolours/light.sh"
-			endif
-		else
-			if filereadable($HOME."/.config/termcolours/dark.sh")
-				execute "silent !/bin/sh ".$HOME."/.config/termcolours/dark.sh"
-			endif
-		endif
-	endif
-endfunction
-
-" Open compiler for filetype
-function! ExecCompiler()
-	" Autom
-	if &ft == "prg"
-		if filereadable(getcwd() . "/siga.prg")
-			if has("win32")
-			:!start c:\winsiga\ucsiga\ucWin.exe "%:p:h\siga.prg"
-			else
-			:!/root/siga/siga "%:p:h/siga.prg"
-			endif
-		else
-			if has("win32")
-			:!start c:\winsiga\ucsiga\ucWin.exe "%:p"
-			else
-			:!/root/siga/siga "%:p"
-			endif
-		endif
-	endif
-endfunction
-
-"}}}
-
 
 " vim: set noexpandtab tabstop=4 shiftwidth=4 softtabstop=4:

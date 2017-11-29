@@ -4,9 +4,10 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-alias ll='ls -l'
+alias l='ls -l -h'
+alias ll='ls -l -h'
 alias la='ls -a'
-alias lla='ls -la'
+alias lla='ls -la -h'
 
 alias ..='cd ..'
 

@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/usr/share/oh-my-zsh/
+export ZSH=/Users/michaeldrewitt/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -51,7 +51,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git, zsh-completions, zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -88,11 +88,19 @@ fi
 autoload -Uz compinit
 compinit
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh  
-source /home/michael/.bash_profile
+# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh  
+source /Users/michaeldrewitt/.bash_profile
 
 # Adding z.sh support
-. /usr/lib/z.sh
+. /usr/local/bin/z
+# Add z syntax highlighting
+. /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Import colorscheme from 'wal'
-(wal -r &)
+# Node version manager
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
+# Android Studio Stuff
+export PATH=$PATH:/Users/michaeldrewitt/Library/Android/sdk/tools/
+export PATH=$PATH:/Users/michaeldrewitt/Library/Android/sdk/platform-tools/
+export PATH=$PATH:/usr/local/opt/mongodb@3.2/bin/
