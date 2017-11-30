@@ -92,7 +92,8 @@ compinit
 source /Users/michaeldrewitt/.bash_profile
 
 # Adding z.sh support
-. /usr/local/bin/z
+# . /usr/local/bin/z
+. /usr/local/etc/profile.d/z.sh
 # Add z syntax highlighting
 . /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
