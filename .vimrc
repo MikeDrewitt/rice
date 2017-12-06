@@ -7,13 +7,11 @@
 "
 " Vicente Gimeno Morales - E7 Version 2.8 - 16 sep 2015
 "======================================================================#
-" Compability {{{
 " -----------------------------------------------------------------------------
 "
 set nocompatible		" use vim defaults instead of vi
 set encoding=utf-8		" always encode in utf
 
-"}}}
 " Vim Plugins {{{
 " -----------------------------------------------------------------------------
 "
@@ -48,6 +46,7 @@ call vundle#begin()
 	Plugin 'fweep/vim-tabber'						" Control tabs better
 	Plugin 'qpkorr/vim-bufkill'						" Better vim buffers ie: BD
 	Plugin 'vim-scripts/a.vim'						" C Tag reader 
+	Plugin 'airblade/vim-gitgutter'					" Git highlighting differences	
 
 	Plugin 'bling/vim-airline'						" Pretty statusbar
 	Plugin 'vim-airline/vim-airline-themes'			" Themes for the pretty status bar
@@ -125,7 +124,7 @@ set spelllang=es					" spell
 set spellfile=~/.vim/spell/es.utf-8.add
 set textwidth=0						" don't break lines after some maximum width
 set ttyfast							" increase chars sent to screen for redrawing
-"set ttyscroll=3					" limit lines to scroll to speed up display
+set ttyscroll=3					" limit lines to scroll to speed up display
 set title							" use filename in window title
 set wildmenu						" enhanced cmd line completion
 set wildchar=<TAB>					" key for line completion
@@ -162,10 +161,6 @@ set showcmd							" show cmd
 set ruler							" show cursor line number
 set shm=atI							" cut large messages
 
-" Colours
-" set t_Co=256
-" set background=dark
-
 if &term == "xterm"
 	let g:hybrid_use_Xresources = 1
 	set background=dark
@@ -201,8 +196,6 @@ if has('gui_running')
 	set guioptions-=b							" remove bottom scrollbar
 	set guioptions-=L							" remove left scrollbar
 	set guicursor+=a:block-blinkon0				" use solid block cursor
-	"Paste from PRIMARY and CLIPBOARD
-	"inoremap <silent> <M-v> <Esc>"+p`]a
 	"inoremap <silent> <S-Insert> <Esc>"*p`]a
 endif
 
@@ -218,17 +211,6 @@ endif
 " "^[" is <ESC> at vim
 
 imap jk <ESC> 
-
-map <ESC>Ob <C-Down>
-map <ESC>Oc <C-Right>
-map <ESC>Od <C-Left>
-map <ESC>Oa <C-Up>
-map <C-@> <C-Space>
-map! <ESC>Ob <C-Down>
-map!<ESC>Oc <C-Right>
-map! <ESC>Od <C-Left>
-map! <ESC>Oa <C-Up>
-map! <C-@> <C-Space>
 
 map <ESC>10j <C-j>
 map <ESC>10k <C-k>
@@ -264,22 +246,6 @@ nnoremap <M-Left> :bp<CR>
 nnoremap <M-n> :bn<CR>
 nnoremap <M-p> :bp<CR>
 
-" Spell checking
-nnoremap <leader>s :set spell!<CR>
-" Show tabs
-nmap <Leader>t :set list lcs=tab:+·<CR>
-nmap <Leader>nt :set nolist<CR>
-" Prepare tabularize
-nmap <Leader>ta :'<,'> Tabularize /
-vmap <Leader>ta :Tabularize /
-" vsplit
-nnoremap <leader>v :vsplit<CR>
-" Edit .vimrc
-nnoremap <leader>vi :e $HOME/.vimrc<CR>
-nnoremap <leader>vr :source $HOME/.vimrc<CR>
-" Search and delete for trailing spaces and spaces before a tab
-nnoremap <leader>w :%s/\s\+$\\| \+\ze\t//gc<CR>
-
 " Next window
 nnoremap <tab> <C-W>w
 " Togle fold
@@ -290,53 +256,18 @@ cnoremap <C-n> <Down>
 " Repace (:help substitute) (:help regular)
 nnoremap <C-R> :%s///gic
 
-" Autocomplete with Ctrl+space o C-N
-inoremap <C-F> <C-X><C-F>
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-inoremap <expr> <C-Space> pumvisible() ? '<C-n>' :
-  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
 " Paste mode for terminal
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
-" Toggle colors
 
 nnoremap <F3> gg=G<CR>
 
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 
-" noremap <F4> :call ToggleColours()<CR>
-" Ctags Bar
-noremap <F9> :TagbarToggle<CR>
-
-" Run compiler
-nnoremap <silent> <F5> :call ExecCompiler()<CR>
-
-"}}}
-" Abreviations {{{
-" -----------------------------------------------------------------------------
-
-" Time
-iab _datetime <C-R>=strftime("%a %b %d %T %Z %Y")<CR>
-iab _time <C-R>=strftime("%H:%M")<CR>
-iab _date <C-R>=strftime("%d %b %Y")<CR>
-
-" Personal
-iab _name Vicente Gimeno Morales - Electro7
-iab _mail vgimeno@grupocener.com
-
-" Heads
-iab _ct #-----------------------------------------------------------------------------#<ESC>ki
-iab _cc // <CR>//----------------------------------------------------------------------------<ESC>ki
-
 " HOME
 iab _home ~/
 
-"}}}
-" Plugin Settings {{{
 " -----------------------------------------------------------------------------
 "  vim-airline
 let g:airline_inactive_collapse = 0
@@ -373,7 +304,6 @@ let g:syntastic_html_tidy_ignore_errors = [
     \  'trimming empty <h1>'
     \ ]
 
-"}}}
 " Autocommands {{{
 " -----------------------------------------------------------------------------
 
