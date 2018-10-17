@@ -34,7 +34,7 @@ line-height = 4
 line-size = 3
 
 font-0 = FontAwesome:size=9;
-font-1 = SanFranciscoDisplay:size=10:weight=regular;0;
+font-1 = SanFranciscoDisplay:size=10:style=regular;0;
 
 [bar/center]
 monitor = DVI-D-0
@@ -127,13 +127,13 @@ font-1 = ${const.font-1}
 tray-background = ${colors/tray_background}
 
 [bar/laptop]
-monitor = eDP1
-modules-left = i3 play_music
+monitor = eDP-1
+modules-left = i3
 modules-center = title
 modules-right = volume wireless-network battery clock
 
 width = ${const.width}
-height = 35 
+height = ${const.height}
 
 clickareas = ${const.clickareas}
 
@@ -213,24 +213,24 @@ label-focused-foreground = ${colors.i3_foreground}
 label-focused-background = ${colors.i3_background}
 label-focused-underline = ${colors.foreground}
 label-focused-padding = 6
-label-focused-maxlen = 2 
+label-focused-maxlen = 3 
 label-focused-ellipsis = False
 
 label-unfocused = %name%
 label-unfocused-foreground = ${colors.i3_unfocused_foreground}
 label-unfocused-padding = 4
-label-unfocused-maxlen = 2
+label-unfocused-maxlen = 3
 label-unfocused-ellipsis = false
 
 label-visible = %name%
 label-visible-padding = 4
-label-visible-maxlen = 2 
+label-visible-maxlen = 3 
 
 label-urgent = %name%
 label-urgent-foreground = ${colors.i3_foreground}
 label-urgent-background = ${colors.i3_urgent_background}
 label-urgent-padding = 4
-label-urgent-maxlen = 2
+label-urgent-maxlen = 3
 
 [module/wireless-network]
 type = internal/network
@@ -274,7 +274,7 @@ label-disconnected = not connected
 label-disconnected-foreground = #66
 
 [module/volume]
-type = internal/volume
+type = internal/alsa
 # format-volume = <ramp-volume> <bar-volume>
 format-volume = <ramp-volume> <label-volume>
 label-muted = %{F#dd7e66}%{F-} %{F#CCC}muted%{F-}

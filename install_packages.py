@@ -34,7 +34,7 @@ with open(INSTALL_LIST, 'r') as install_list:
                 program = install.split()[0]
                 #print(program)
                 if not program in aur_packages and flag in sys.argv:
-                    subprocess.call(['pacaur -S --noconfirm --noedit ' + program], shell=True)
+                    subprocess.call(['yay -S --noconfirm ' + program], shell=True)
                     #print(program)
                 elif program in aur_packages:
                     print(program + ' is already installed')
