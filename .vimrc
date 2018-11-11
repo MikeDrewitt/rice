@@ -7,13 +7,11 @@
 "
 " Vicente Gimeno Morales - E7 Version 2.8 - 16 sep 2015
 "======================================================================#
-" Compability {{{
 " -----------------------------------------------------------------------------
 "
 set nocompatible		" use vim defaults instead of vi
 set encoding=utf-8		" always encode in utf
 
-"}}}
 " Vim Plugins {{{
 " -----------------------------------------------------------------------------
 "
@@ -31,68 +29,53 @@ call vundle#begin()
 	
 	Plugin 'gmarik/Vundle.vim'						" Plugin managers that makes the magic happen
 
-	Plugin 'Shougo/neocomplete'						" Automatic keyword completion
 	Plugin 'Shougo/unite.vim'						" Find files and buffers using ag
 	Plugin 'Shougo/vimfiler.vim'					" File Explorer :VimFiler
 	Plugin 'jlanzarotta/bufexplorer'				" Buffer Explorer :BufExplore
 	Plugin 'godlygeek/tabular'						" Text alignment
-	Plugin 'majutsushi/tagbar'						" Display tags in a window
 	Plugin 'scrooloose/syntastic'					" Syntax checking on write
 	Plugin 'tpope/vim-fugitive'						" Git wrapper
-	Plugin 'tpope/vim-surround'						" Manipulate quotes and brackets
-	Plugin 'terryma/vim-multiple-cursors'			" Multiple cursors work
-	Plugin 'altercation/vim-colors-solarized.git'	" Solarized theme
 	Plugin 'nathanaelkane/vim-indent-guides.git'	" Show tab/space guides
-	Plugin 'alvan/vim-closetag'						" Closes HTML Tags for you
-	Plugin 'tpope/vim-sensible'						" Scrolling/ Backspace actions
 	Plugin 'fweep/vim-tabber'						" Control tabs better
 	Plugin 'qpkorr/vim-bufkill'						" Better vim buffers ie: BD
-	Plugin 'vim-scripts/a.vim'						" C Tag reader 
+	Plugin 'airblade/vim-gitgutter'					" Git highlighting differences
+	Plugin 'kien/ctrlp.vim'							" Fuzzy Search
 
 	Plugin 'bling/vim-airline'						" Pretty statusbar
 	Plugin 'vim-airline/vim-airline-themes'			" Themes for the pretty status bar
-	Plugin 'edkolev/promptline.vim'					" Prompt generator for bash
 
 	" Languages
 	Plugin 'pangloss/vim-javascript'
 	Plugin 'mxw/vim-jsx'
 
-	" Plugin 'Valloric/YouCompleteMe'					" Auto variable completion
 	Plugin 'jiangmiao/auto-pairs'					" Closes brackets, parens, etc
-
 	Plugin 'scrooloose/nerdtree'					" If you have to ask, you're not ready
-
-	Plugin 'vim-scripts/AfterColors.vim'			" Adds aftercolor support
+	Plugin 'PotatoesMaster/i3-vim-syntax'			" i3 coloring
 
 	" Colosrscheme coordinator
 	Plugin 'dylanaraps/wal'
 
 	" Colorschemes
-	Plugin 'morhetz/gruvbox'						" Greenish
 	Plugin 'marciomazza/vim-brogrammer-theme'		" Pastel colors on a dark background, too yellow
-	Plugin 'fneu/breezy'							" Rish colors, reds on a dark background
 	Plugin 'davidklsn/vim-sialoquent'				" Greyish Yellow Matted
 	Plugin 'tyrannicaltoucan/vim-quantum'			" Darker grey and green
 	Plugin 'arcticicestudio/nord-vim'				" Light grey and blue
 	Plugin 'antlypls/vim-colors-codeschool'			" Subdued grey and ugly green, and nice colors
+	Plugin 'KeitaNakamura/neodark.vim'				" Like atoms one dark
+	Plugin 'rakr/vim-two-firewatch'					" Firewatch theme
+	Plugin 'mkarmona/materialbox'					" MaterialBox
+	Plugin 'ayu-theme/ayu-vim' 						" ayu
+
 	" Airline Themes
 	Plugin 'dikiaap/minimalist'
-
-	" Syntax Coloring for Langs		
-	Plugin 'PotatoesMaster/i3-vim-syntax'			" i3 coloring
-
-	" Plugin 'simeji/winresizer'				" resizer for vim windows
 
 " Put your non-Plugin stuff after this line
 call vundle#end()
 
 
 " NERDTree Stuffs
-
 autocmd VimEnter * NERDTree
 let g:NERDTreeWinPos = "left"
-
-" colorscheme wal
 
 if has("win32")
 	set runtimepath+=~/.vim
@@ -107,7 +90,7 @@ syntax on
 
 " General
 set backspace=2						" enable <BS> for everything
-set colorcolumn=100					" visual indicator of column
+set colorcolumn=120					" visual indicator of column
 set number							" Show line numbers
 set completeopt=longest,menuone		" Autocompletion options
 set complete=.,w,b,u,t,i,d			" autocomplete options (:help 'complete')
@@ -125,7 +108,7 @@ set spelllang=es					" spell
 set spellfile=~/.vim/spell/es.utf-8.add
 set textwidth=0						" don't break lines after some maximum width
 set ttyfast							" increase chars sent to screen for redrawing
-"set ttyscroll=3					" limit lines to scroll to speed up display
+set ttyscroll=3					" limit lines to scroll to speed up display
 set title							" use filename in window title
 set wildmenu						" enhanced cmd line completion
 set wildchar=<TAB>					" key for line completion
@@ -134,7 +117,6 @@ set splitright						" Split new buffer at right
 set scrolloff=20					" Keeps you 20 lines form the bottom. Let's you see more
 
 " Folding
-set foldignore=						" don't ignore anything when folding
 set foldlevelstart=99				" no folds closed on open
 set foldmethod=marker				" collapse code using markers
 set foldnestmax=1					" limit max folds for indent and syntax methods
@@ -146,7 +128,7 @@ set shiftwidth=4					" spaces for autoindenting
 set smarttab						" <BS> removes shiftwidth worth of spaces
 set softtabstop=0 noexpandtab		" spaces for editing, e.g. <Tab> or <BS>
 set tabstop=4						" spaces for <Tab>
-"set expandtab						" Tabs will be converted to spaces
+set expandtab						" Tabs will be converted to spaces
 
 " Searches
 set hlsearch						" highlight search results
@@ -162,72 +144,26 @@ set showcmd							" show cmd
 set ruler							" show cursor line number
 set shm=atI							" cut large messages
 
-" Colours
-set t_Co=256
+syntax enable
 
-set background=dark
+let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
 
-if &term == "xterm"
-	let g:hybrid_use_Xresources = 1
-	set background=dark
-	colorscheme quantum
-else
-	" Theme setting.
-	" Two principal themes for dark and light background
-	" Function ToggleColours
-	" See comments in theme
-	let g:hybrid_use_Xresources = 1
-	set background=dark
-	set termguicolors
-	colorscheme quantum
-	let g:quantum_black=1
+colorscheme ayu
 
-	"hi Normal ctermbg=0
-endif
+let g:airline_theme='ayu' 			" if you have Airline installed and want the associated theme
+let g:Powerline_symbols='fancy'
 
-" gVim
-if has('gui_running')
-	if has("win32")
-		set guifont=Lucida_Console:h8
-		set lines=40							" Nº lines
-		set columns=90							" Nº columns
-	else
-		set guifont=Inconsolata\ for\ Powerline\ 10
-	endif
-	set guioptions-=m							" remove menu
-	set guioptions-=T							" remove toolbar
-	set guioptions-=r							" remove right scrollbar
-	set guioptions-=b							" remove bottom scrollbar
-	set guioptions-=L							" remove left scrollbar
-	set guicursor+=a:block-blinkon0				" use solid block cursor
-	"Paste from PRIMARY and CLIPBOARD
-	"inoremap <silent> <M-v> <Esc>"+p`]a
-	"inoremap <silent> <S-Insert> <Esc>"*p`]a
-endif
-
-" vimdiff
-if &diff
-	set diffopt=filler,foldcolumn:0
-endif
+set guifont=Droid\ Sans\ Mono\ for\ Powerline:15
+set encoding=utf-8
+set termencoding=utf-8
 
 " --------------------------------------- Mappings -------------------------------------
 
 " Fixes linux console keys
-" "od -a" and get the code
-" "^[" is <ESC> at vim
 
 imap jk <ESC> 
-
-map <ESC>Ob <C-Down>
-map <ESC>Oc <C-Right>
-map <ESC>Od <C-Left>
-map <ESC>Oa <C-Up>
-map <C-@> <C-Space>
-map! <ESC>Ob <C-Down>
-map!<ESC>Oc <C-Right>
-map! <ESC>Od <C-Left>
-map! <ESC>Oa <C-Up>
-map! <C-@> <C-Space>
 
 map <ESC>10j <C-j>
 map <ESC>10k <C-k>
@@ -247,8 +183,8 @@ nnoremap <leader>d :vertical diffsplit<CR>
 nnoremap <leader>f :Explore<CR>
 
 " Editor Controls
-noremap <c-s-up> :call feedkeys( line('.')==1 ? '' : 'ddkP' )<CR>
-noremap <c-s-down> ddp
+noremap <A-up> :call feedkeys( line('.')==1 ? '' : 'ddkP' )<CR>
+noremap <A-down> ddp
 
 " Buffer selection
 nnoremap <leader>n :bn<CR>
@@ -263,22 +199,6 @@ nnoremap <M-Left> :bp<CR>
 nnoremap <M-n> :bn<CR>
 nnoremap <M-p> :bp<CR>
 
-" Spell checking
-nnoremap <leader>s :set spell!<CR>
-" Show tabs
-nmap <Leader>t :set list lcs=tab:+·<CR>
-nmap <Leader>nt :set nolist<CR>
-" Prepare tabularize
-nmap <Leader>ta :'<,'> Tabularize /
-vmap <Leader>ta :Tabularize /
-" vsplit
-nnoremap <leader>v :vsplit<CR>
-" Edit .vimrc
-nnoremap <leader>vi :e $HOME/.vimrc<CR>
-nnoremap <leader>vr :source $HOME/.vimrc<CR>
-" Search and delete for trailing spaces and spaces before a tab
-nnoremap <leader>w :%s/\s\+$\\| \+\ze\t//gc<CR>
-
 " Next window
 nnoremap <tab> <C-W>w
 " Togle fold
@@ -289,53 +209,18 @@ cnoremap <C-n> <Down>
 " Repace (:help substitute) (:help regular)
 nnoremap <C-R> :%s///gic
 
-" Autocomplete with Ctrl+space o C-N
-inoremap <C-F> <C-X><C-F>
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-inoremap <expr> <C-Space> pumvisible() ? '<C-n>' :
-  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
 " Paste mode for terminal
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
-" Toggle colors
 
 nnoremap <F3> gg=G<CR>
 
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 
-" noremap <F4> :call ToggleColours()<CR>
-" Ctags Bar
-noremap <F9> :TagbarToggle<CR>
-
-" Run compiler
-nnoremap <silent> <F5> :call ExecCompiler()<CR>
-
-"}}}
-" Abreviations {{{
-" -----------------------------------------------------------------------------
-
-" Time
-iab _datetime <C-R>=strftime("%a %b %d %T %Z %Y")<CR>
-iab _time <C-R>=strftime("%H:%M")<CR>
-iab _date <C-R>=strftime("%d %b %Y")<CR>
-
-" Personal
-iab _name Vicente Gimeno Morales - Electro7
-iab _mail vgimeno@grupocener.com
-
-" Heads
-iab _ct #-----------------------------------------------------------------------------#<ESC>ki
-iab _cc // <CR>//----------------------------------------------------------------------------<ESC>ki
-
 " HOME
 iab _home ~/
 
-"}}}
-" Plugin Settings {{{
 " -----------------------------------------------------------------------------
 "  vim-airline
 let g:airline_inactive_collapse = 0
@@ -354,15 +239,6 @@ else
 	let g:airline_theme = 'minimalist'
 endif
 
-" Promptline
-" \'b': [ promptline#slices#host(), promptline#slices#user() ],
-let g:promptline_preset = {
-	\'b': [ promptline#slices#cwd() ],
-	\'c': [ promptline#slices#vcs_branch() ],
-	\'z': [ promptline#slices#git_status() ],
-	\'warn' : [ promptline#slices#last_exit_code() ]}
-let g:promptline_theme = 'air_e7'
-
 " Syntastic
 let g:syntastic_html_tidy_ignore_errors = [
     \  '<html> attribute "lang" lacks value',
@@ -371,10 +247,6 @@ let g:syntastic_html_tidy_ignore_errors = [
     \  'trimming empty <span>',
     \  'trimming empty <h1>'
     \ ]
-
-"}}}
-" Autocommands {{{
-" -----------------------------------------------------------------------------
 
 " Omnicompletion
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -390,13 +262,13 @@ autocmd FileType c
 autocmd FileType cpp,java,php,python
 	\ setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 	\ list lcs=tab:+.
-autocmd FileType markdown setlocal textwidth=80
+autocmd FileType markdown setlocal textwidth=120
 autocmd FileType prg
 	\ setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=2 cindent
 	\ list lcs=tab:+.
 
 " Txt
-autocmd FileType text setlocal textwidth=79 wrap
+autocmd FileType text setlocal textwidth=120 wrap
 
 " Folding rules
 autocmd FileType c,cpp,java,prg setlocal foldmethod=syntax foldnestmax=5
@@ -414,60 +286,5 @@ autocmd BufNewFile,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn
 
 " Set filetype for prg
 autocmd BufNewFile,BufRead *.prg,*.dev,*.act,*.cas set ft=prg
-
-"}}}
-" Functions {{{
-" -----------------------------------------------------------------------------
-
-" Toggle Colours
-function! ToggleColours()
-	if &background  == 'dark'
-		set background=light
-		let g:solarized_bold=0
-		colorscheme solarized
-		AirlineTheme base16
-	else
-		set background=dark
-		let g:hybrid_use_Xresources = 1
-		colorscheme hybrid_e7
-		AirlineTheme air_e7
-	endif
-
-	" Reconfigure term colors
-	if !has('gui_running')
-		if &background == 'light'
-			if filereadable($HOME."/.config/termcolours/light.sh")
-				execute "silent !/bin/sh ".$HOME."/.config/termcolours/light.sh"
-			endif
-		else
-			if filereadable($HOME."/.config/termcolours/dark.sh")
-				execute "silent !/bin/sh ".$HOME."/.config/termcolours/dark.sh"
-			endif
-		endif
-	endif
-endfunction
-
-" Open compiler for filetype
-function! ExecCompiler()
-	" Autom
-	if &ft == "prg"
-		if filereadable(getcwd() . "/siga.prg")
-			if has("win32")
-			:!start c:\winsiga\ucsiga\ucWin.exe "%:p:h\siga.prg"
-			else
-			:!/root/siga/siga "%:p:h/siga.prg"
-			endif
-		else
-			if has("win32")
-			:!start c:\winsiga\ucsiga\ucWin.exe "%:p"
-			else
-			:!/root/siga/siga "%:p"
-			endif
-		endif
-	endif
-endfunction
-
-"}}}
-
 
 " vim: set noexpandtab tabstop=4 shiftwidth=4 softtabstop=4:

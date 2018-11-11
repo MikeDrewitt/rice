@@ -34,6 +34,7 @@ z-git # z cd
 oh-my-zsh-git # oh my z shell
 zsh-completions
 zsh-syntax-highlighting # syntax highlighting 
+dconf-editor            # gnome-terminal coloring
 
 # laptop
 perl-x11-guitest # used for multitouch gestures
