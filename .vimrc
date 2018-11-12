@@ -39,13 +39,17 @@ call vundle#begin()
 	Plugin 'fweep/vim-tabber'						" Control tabs better
 	Plugin 'qpkorr/vim-bufkill'						" Better vim buffers ie: BD
 	Plugin 'airblade/vim-gitgutter'					" Git highlighting differences
-	Plugin 'kien/ctrlp.vim'							" Fuzzy Search
+	Plugin 'junegunn/fzf.vim'						" Fuzzy Search
+	Plugin 'terryma/vim-multiple-cursors'			" Multiple Cursors
 
 	Plugin 'bling/vim-airline'						" Pretty statusbar
 	Plugin 'vim-airline/vim-airline-themes'			" Themes for the pretty status bar
 
+	" Snippits
+	Plugin 'grvcoelho/vim-javascript-snippets'		" Snippets 
+
 	" Languages
-	Plugin 'pangloss/vim-javascript'
+	Plugin 'jelera/vim-javascript-syntax'	
 	Plugin 'mxw/vim-jsx'
 
 	Plugin 'jiangmiao/auto-pairs'					" Closes brackets, parens, etc
@@ -75,11 +79,22 @@ call vundle#end()
 
 " NERDTree Stuffs
 autocmd VimEnter * NERDTree
+
 let g:NERDTreeWinPos = "left"
+
+map <C-S-E> :NERDTreeToggle && NERDTreeFind <CR>
 
 if has("win32")
 	set runtimepath+=~/.vim
 endif
+
+" Fuzzy Searching 
+
+" Sets up fzf for Macos (must have installed fzf via homebrew) 
+set rtp+=/usr/local/opt/fzf
+
+map <C-S-F> :Ag <CR>
+map <C-P> :FZF <CR>
 
 " -------------------------------------- Settings --------------------------------------
 
@@ -108,7 +123,7 @@ set spelllang=es					" spell
 set spellfile=~/.vim/spell/es.utf-8.add
 set textwidth=0						" don't break lines after some maximum width
 set ttyfast							" increase chars sent to screen for redrawing
-set ttyscroll=3					" limit lines to scroll to speed up display
+set ttyscroll=3					    " limit lines to scroll to speed up display
 set title							" use filename in window title
 set wildmenu						" enhanced cmd line completion
 set wildchar=<TAB>					" key for line completion
@@ -152,8 +167,24 @@ set termguicolors
 
 colorscheme ayu
 
+"  vim-airline
 let g:airline_theme='ayu' 			" if you have Airline installed and want the associated theme
 let g:Powerline_symbols='fancy'
+let g:airline_inactive_collapse = 0
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tagbar#enabled = 1
+
+if has("gui_win32") || &term == "gnome-terminal"
+	let g:airline_powerline_fonts = 0
+	let g:airline_symbols = {}
+	let g:airline_left_sep = ''
+	let g:airline_left_sep = ''
+	let g:airline_right_sep = ''
+	let g:airline_right_sep = ''
+else
+	let g:airline_powerline_fonts = 1
+endif
+
 
 set guifont=Droid\ Sans\ Mono\ for\ Powerline:15
 set encoding=utf-8
@@ -162,11 +193,14 @@ set termencoding=utf-8
 " --------------------------------------- Mappings -------------------------------------
 
 " Fixes linux console keys
-
 imap jk <ESC> 
 
-map <ESC>10j <C-j>
-map <ESC>10k <C-k>
+" Editor keybinds (these don't seem to be working on MacOS)
+nnoremap <A-Up> :m-2 <CR>
+nnoremap <A-Down> :m+ <CR>
+
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
 
 " Map leader
 let mapleader = ','
@@ -181,10 +215,6 @@ nnoremap <leader>b :BufExplorer<CR>
 nnoremap <leader>d :vertical diffsplit<CR>
 " Open file browser
 nnoremap <leader>f :Explore<CR>
-
-" Editor Controls
-noremap <A-up> :call feedkeys( line('.')==1 ? '' : 'ddkP' )<CR>
-noremap <A-down> ddp
 
 " Buffer selection
 nnoremap <leader>n :bn<CR>
@@ -222,22 +252,6 @@ autocmd InsertLeave * :set relativenumber
 iab _home ~/
 
 " -----------------------------------------------------------------------------
-"  vim-airline
-let g:airline_inactive_collapse = 0
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tagbar#enabled = 1
-if has("gui_win32") || &term == "gnome-terminal"
-	let g:airline_powerline_fonts = 0
-	let g:airline_symbols = {}
-	let g:airline_left_sep = ''
-	let g:airline_left_sep = ''
-	let g:airline_right_sep = ''
-	let g:airline_right_sep = ''
-	let g:airline_theme = 'minimalist'
-else
-	let g:airline_powerline_fonts = 1
-	let g:airline_theme = 'minimalist'
-endif
 
 " Syntastic
 let g:syntastic_html_tidy_ignore_errors = [
