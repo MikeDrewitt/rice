@@ -2,13 +2,13 @@
 
 rofi -modi "run,drun,ssh" 	\
 	 -show drun 			\
-	 -width 2560 			\
-	 -padding 600 			\
-	 -lines 15 				\
-	 -eh 2 					\
-	 -location 0 			\
-	 -opacity "10" 			\
-	 -bw 0 					\
+	 -width 3440   			\
+	 -padding 5 			\
+	 -lines 6 				\
+	 -eh 1 					\
+	 -location 3 			\
+	 -opacity "0" 			\
+	 -bw 1 					\
 	 -hide-scrollbar 		\
 	 -color-enabled 		\
 	 # -color-window "#0B3954","#0B3954" \
