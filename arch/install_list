@@ -35,6 +35,8 @@ oh-my-zsh-git # oh my z shell
 zsh-completions
 zsh-syntax-highlighting # syntax highlighting 
 dconf-editor            # gnome-terminal coloring
+fzf # vim fuzzy finder
+the_silver_searcher # find in directory vim
 
 # laptop
 perl-x11-guitest # used for multitouch gestures
