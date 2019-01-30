@@ -1,0 +1,68 @@
+{
+  "editor.fontFamily": "Iosevka Term",
+  "editor.fontSize": 16,
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [0, 120],
+  "editor.formatOnSave": true,
+  "workbench.colorTheme": "Ayu Dark",
+  "workbench.colorCustomizations": {
+    "editorLineNumber.foreground": "#CCCCCC"
+  },
+  "editor.trimAutoWhitespace": true,
+  "files.trimTrailingWhitespace": true,
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false,
+    "suppressCommitNotFoundWarning": false,
+    "suppressFileNotUnderSourceControlWarning": false,
+    "suppressGitVersionWarning": false,
+    "suppressLineUncommittedWarning": false,
+    "suppressNoRepositoryWarning": false,
+    "suppressResultsExplorerNotice": false,
+    "suppressShowKeyBindingsNotice": true,
+    "suppressUpdateNotice": false,
+    "suppressWelcomeNotice": true
+  },
+  "window.zoomLevel": 1,
+  "explorer.confirmDelete": false,
+  "java.errors.incompleteClasspath.severity": "ignore",
+  "explorer.confirmDragAndDrop": false,
+  "workbench.sideBar.location": "left",
+  "editor.minimap.enabled": false,
+  "workbench.editor.enablePreview": false,
+  "gitlens.keymap": "alternate",
+  "eslint.enable": false,
+  "gitlens.historyExplorer.enabled": true,
+  "vim.easymotion": true,
+  "vim.sneak": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  },
+  "vim.disableExtension": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "breadcrumbs.enabled": true,
+  "workbench.startupEditor": "newUntitledFile",
+
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wrappingIndent": "same",
+  "editor.wordWrapColumn": 120,
+  "workbench.activityBar.visible": false
+}
+
