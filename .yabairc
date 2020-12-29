@@ -1,0 +1,23 @@
+# Window Layout
+yabai -m config layout bsp
+
+# Boarder Info
+yabai -m config window_border on
+yabai -m config window_border_width 6
+yabai -m config active_window_border_color 0xffff6666
+yabai -m config normal_window_border_color 0x55555555
+
+# Gaps
+yabai -m config top_padding    20
+yabai -m config bottom_padding 20
+yabai -m config left_padding   20
+yabai -m config right_padding  20
+yabai -m config window_gap     20
+
+# Mouse Stuff
+yabai -m config focus_follows_mouse autoraise
+yabai -m config mouse_follows_focus on
+
+# Misc
+yabai -m config window_topmost on
+yabai -m config auto_balance off

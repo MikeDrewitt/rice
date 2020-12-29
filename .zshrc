@@ -84,15 +84,8 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# My stuff added
-autoload -Uz compinit
-compinit
-
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh  
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /home/michael/.bash_profile
 
 # Adding z.sh support
 . /usr/lib/z.sh
-
-# Import colorscheme from 'wal'
-(wal -r &)

@@ -1,0 +1,58 @@
+# Movement Controls
+cmd - left : yabai -m window --focus west || yabai -m display --focus prev
+cmd - right : yabai -m window --focus east || yabai -m display --focus next
+cmd - down : yabai -m window --focus south || yabai -m display --focus prev
+cmd - up : yabai -m window --focus north || yabai -m display --focus next
+
+# Window Swapping
+shift + cmd - up : yabai -m window --swap north
+shift + cmd - left : yabai -m window --swap west || (yabai -m window --display prev && yabai -m display --focus prev)
+shift + cmd - down : yabai -m window --swap south
+shift + cmd - right : yabai -m window --swap east || (yabai -m window --display next && yabai -m display --focus next)
+
+# Window Resizing
+alt - w : yabai -m window --resize bottom_right:0:-150 || yabai -m window --resize top_right:0:-150
+alt - a : yabai -m window --resize bottom_right:-150:0 || yabai -m window --resize bottom_left:-150:0
+alt - s : yabai -m window --resize bottom_right:0:150 || yabai -m window --resize top_right:0:150
+alt - d : yabai -m window --resize bottom_right:150:0 || yabai -m window --resize bottom_left:150:0
+
+# Insertion position Controls
+alt - h : yabai -m window --insert west
+alt - j : yabai -m window --insert south
+alt - k : yabai -m window --insert north
+alt - l : yabai -m window --insert east
+
+# Focus display
+alt - 1 : yabai -m display --focus 1
+alt - 2 : yabai -m display --focus 2
+alt - 3 : yabai -m display --focus 3
+
+# Changing Spaces (non natively)
+ctrl + cmd - right : yabai -m space --focus next
+ctrl + cmd - left : yabai -m space --focus prev
+
+# Move window to next/prev virt. desktop
+ctrl + shift - left : yabai -m window --space prev
+ctrl + shift - right : yabai -m window --space next
+
+# Move workspace to next/prev display
+shift + ctrl + cmd - left : yabai -m space --display prev
+shift + ctrl + cmd - right : yabai -m space --display next
+
+# Create and view new space
+alt - n : yabai -m space --create && \
+  index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+  yabai -m space --focus "${index}"
+# Create and send active window to new space
+shift + alt - n : yabai -m space --create && \
+  index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+  yabai -m window --space "${index}" && \
+  yabai -m space --focus "${index}"
+# Destroy currenty virtual desktop
+alt - q : yabai -m space --destroy
+
+# Misc. Controls
+alt - f : yabai -m window --toggle zoom-fullscreen
+shift + alt - f : yabai -m window --toggle native-fullscreen
+alt - space: yabai -m window --toggle float
+alt - v: yabai -m window --toggle split
